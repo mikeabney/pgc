@@ -1,0 +1,3 @@
+# Ignore all .idea directories and .gradle directories
+**/.idea/
+**/.gradle/
