@@ -1,0 +1,27 @@
+// Establish version and status
+ext.githubProjectName = rootProject.name
+
+allprojects {
+}
+
+subprojects {
+  group = "com.mikeabney.${githubProjectName}"
+
+  apply plugin: 'java'
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+
+  repositories {
+      mavenLocal()
+      mavenCentral()
+  }
+
+  // enable all compiler warnings
+  [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:-options']
+
+  // common dependencies for all projects
+  dependencies {
+    testCompile "junit:junit:4.+"
+  }
+}
