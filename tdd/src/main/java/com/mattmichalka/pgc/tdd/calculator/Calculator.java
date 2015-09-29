@@ -32,6 +32,7 @@ public class Calculator {
     }
 
     public void div() {
+        checkForOperands(2);
         double divisor = operands.pop();
         operands.push(operands.pop()/divisor);
     }
