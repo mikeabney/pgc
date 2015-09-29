@@ -26,6 +26,10 @@ public class Calculator {
         operands.push(operands.pop() * operands.pop());
     }
 
+    public void sub() {
+        operands.push(-operands.pop() + operands.pop());
+    }
+
     private void checkForOperands(int num){
         if(operands.size() < num) {
             throw new NotEnoughValuesInStackException(num);
