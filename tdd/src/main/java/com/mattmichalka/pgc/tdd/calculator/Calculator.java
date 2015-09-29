@@ -11,6 +11,11 @@ public class Calculator {
         operands.push(i);
     }
 
+    public void pop() {
+        checkForOperands(1);
+        operands.pop();
+    }
+
     public double value() {
         checkForOperands(1);
         return operands.peek();
@@ -53,6 +58,11 @@ public class Calculator {
         double b = operands.pop();
         operands.push(a);
         operands.push(b);
+    }
+
+    public void dup() {
+        checkForOperands(1);
+        operands.push(operands.peek());
     }
 
     private void checkForOperands(int num){
