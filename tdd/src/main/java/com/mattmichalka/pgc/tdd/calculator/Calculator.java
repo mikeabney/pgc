@@ -27,6 +27,7 @@ public class Calculator {
     }
 
     public void sub() {
+        checkForOperands(2);
         operands.push(-operands.pop() + operands.pop());
     }
 
