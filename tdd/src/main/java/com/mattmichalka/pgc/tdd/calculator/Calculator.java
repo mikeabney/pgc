@@ -31,6 +31,11 @@ public class Calculator {
         operands.push(-operands.pop() + operands.pop());
     }
 
+    public void div() {
+        double divisor = operands.pop();
+        operands.push(operands.pop()/divisor);
+    }
+
     private void checkForOperands(int num){
         if(operands.size() < num) {
             throw new NotEnoughValuesInStackException(num);
