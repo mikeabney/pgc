@@ -16,6 +16,10 @@ public class Calculator {
         return operands.peek();
     }
 
+    public void clear() {
+        operands.clear();
+    }
+
     public void add() {
         checkForOperands(2);
         operands.push(operands.pop() + operands.pop());
@@ -35,6 +39,20 @@ public class Calculator {
         checkForOperands(2);
         double divisor = operands.pop();
         operands.push(operands.pop()/divisor);
+    }
+
+    public void mod() {
+        checkForOperands(2);
+        double modulus = operands.pop();
+        operands.push(operands.pop()%modulus);
+    }
+
+    public void swap() {
+        checkForOperands(2);
+        double a = operands.pop();
+        double b = operands.pop();
+        operands.push(a);
+        operands.push(b);
     }
 
     private void checkForOperands(int num){
