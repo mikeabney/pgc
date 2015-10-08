@@ -1,7 +1,8 @@
 package practice.good.design;
 
-import java.util.ArrayList;
-import java.util.List;
+import practice.good.design.operands.Equals;
+import practice.good.design.operands.Operand;
+
 import java.util.Stack;
 
 /**

@@ -1,4 +1,4 @@
-package practice.good.design;
+package practice.good.design.operands;
 
 /**
  * Created by zacharycannon on 10/8/15.

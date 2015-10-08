@@ -2,6 +2,10 @@ package practice.good.design;
 
 import org.junit.Before;
 import org.junit.Test;
+import practice.good.design.operands.Add;
+import practice.good.design.operands.Equals;
+import practice.good.design.operands.Multiply;
+import practice.good.design.operands.Subtract;
 
 import static org.junit.Assert.assertEquals;
 
