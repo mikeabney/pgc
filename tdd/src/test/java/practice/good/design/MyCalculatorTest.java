@@ -2,10 +2,7 @@ package practice.good.design;
 
 import org.junit.Before;
 import org.junit.Test;
-import practice.good.design.operands.Add;
-import practice.good.design.operands.Equals;
-import practice.good.design.operands.Multiply;
-import practice.good.design.operands.Subtract;
+import practice.good.design.operands.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -135,6 +132,30 @@ public class MyCalculatorTest {
         calculator.pushOperand(new Equals());
 
         checkDisplay("-12");
+    }
+
+    @Test
+     public void verifyThatDividingEasyNumbersReturnCorrectResult() {
+        calculator.pushInput(10);
+        calculator.pushInput(5);
+        calculator.pushOperand(new Divide());
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("2");
+    }
+
+    @Test
+    public void verifyThatDividingEasyNumbersWithAddOperationReturnCorrectResult() {
+        calculator.pushInput(48);
+        calculator.pushOperand(new Divide());
+        calculator.pushInput(5);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(7);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("4");
     }
 
     private void checkDisplay(String expectedDisplayValue) {
