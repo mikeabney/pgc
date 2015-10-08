@@ -38,14 +38,17 @@ public class MyCalculator {
     }
 
     private void evaluateStacks() {
-        int input2 = numberStack.pop();
-        int input1 = numberStack.pop();
-        Operand operand = operandStack.pop();
+        int numberOfOperands = operandStack.size();
+        for (int i=0; i<numberOfOperands; i++) {
+            int input2 = numberStack.pop();
+            int input1 = numberStack.pop();
+            Operand operand = operandStack.pop();
 
-        Integer result = operand.evaluate(input1, input2);
+            Integer result = operand.evaluate(input1, input2);
 
-        numberStack.push(result);
-        displayValue = result.toString();
+            numberStack.push(result);
+            displayValue = result.toString();
+        }
     }
 
 }

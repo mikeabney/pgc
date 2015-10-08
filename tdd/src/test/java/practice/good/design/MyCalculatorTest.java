@@ -47,14 +47,40 @@ public class MyCalculatorTest {
     }
 
     @Test
-    public void pushingEqualsOperandWillEvaluateStacks() {
+    public void pushingEqualsOperandWillEvaluateStackWithOneOperand() {
         calculator.pushInput(6);
         calculator.pushOperand(new Add());
-        calculator.pushInput(6);
+        calculator.pushInput(7);
 
         calculator.pushOperand(new Equals());
 
-        checkDisplay("12");
+        checkDisplay("13");
+    }
+
+    @Test
+    public void pushingEqualsOperandWillEvaluateEntireStackWorthOfAddOperands() {
+        calculator.pushInput(6);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(7);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(8);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("21");
+    }
+
+    @Test
+    public void pushingEqualsOperandWillEvaluateEntireStackWorthOfAddAndSubtractOperands() {
+        calculator.pushInput(12);
+        calculator.pushOperand(new Subtract());
+        calculator.pushInput(4);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(5);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("3");
     }
 
     private void checkDisplay(String expectedDisplayValue) {
