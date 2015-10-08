@@ -24,34 +24,35 @@ public class MyCalculatorTest {
 
     @Test
     public void pushingNumberOnToStackWillShowNumber() {
-        calculator.pushInput("5");
+        calculator.pushInput(5);
 
         checkDisplay("5");
     }
 
     @Test
     public void pushingNumberAndOperandOnStackWillShowOperand() {
-        calculator.pushInput("6");
-        calculator.pushOperand(Operands.ADD);
+        calculator.pushInput(6);
+        calculator.pushOperand(new Add());
 
         checkDisplay("+");
     }
 
     @Test
     public void pushingNumberAfterOperandAndNumberWillShowNumber() {
-        calculator.pushInput("6");
-        calculator.pushOperand(Operands.ADD);
-        calculator.pushInput("6");
+        calculator.pushInput(6);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(6);
 
         checkDisplay("6");
     }
 
     @Test
     public void pushingEqualsOperandWillEvaluateStacks() {
-        calculator.pushInput("6");
-        calculator.pushOperand(Operands.ADD);
-        calculator.pushInput("6");
-        calculator.pushOperand(Operands.EQUALS);
+        calculator.pushInput(6);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(6);
+
+        calculator.pushOperand(new Equals());
 
         checkDisplay("12");
     }
