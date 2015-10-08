@@ -58,7 +58,7 @@ public class MyCalculatorTest {
     }
 
     @Test
-    public void pushingEqualsOperandWillEvaluateEntireStackWorthOfAddOperands() {
+    public void pushingEqualsOperandWillEvaluateStackOfMultipleAddOperands() {
         calculator.pushInput(6);
         calculator.pushOperand(new Add());
         calculator.pushInput(7);
@@ -81,6 +81,56 @@ public class MyCalculatorTest {
         calculator.pushOperand(new Equals());
 
         checkDisplay("3");
+    }
+
+    @Test
+    public void verifyMultiplyOperandReturnsMultiplicationOfInputs() {
+        calculator.pushInput(12);
+        calculator.pushOperand(new Multiply());
+        calculator.pushInput(10);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("120");
+    }
+
+    @Test
+    public void verifyEntireStackWorthOfAllOperands() {
+        calculator.pushInput(12);
+        calculator.pushOperand(new Add());
+        calculator.pushInput(6);
+        calculator.pushOperand(new Multiply());
+        calculator.pushInput(8);
+        calculator.pushOperand(new Subtract());
+        calculator.pushInput(2);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("48");
+    }
+
+    @Test
+    public void verifyThatNegativeNumbersCanBeShown() {
+        calculator.pushInput(12);
+        calculator.pushOperand(new Subtract());
+        calculator.pushInput(14);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("-2");
+    }
+
+    @Test
+    public void verifyThatNegativeNumbersCanBeMultipliedShown() {
+        calculator.pushInput(6);
+        calculator.pushOperand(new Multiply());
+        calculator.pushInput(12);
+        calculator.pushOperand(new Subtract());
+        calculator.pushInput(14);
+
+        calculator.pushOperand(new Equals());
+
+        checkDisplay("-12");
     }
 
     private void checkDisplay(String expectedDisplayValue) {
