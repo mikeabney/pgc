@@ -1,8 +1,8 @@
 package com.jprusakova.tdd.money.currency;
 
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class CurrencyConversionRateTest {
     private CurrencyConverter converter = new CurrencyConverter();
@@ -11,6 +11,11 @@ public class CurrencyConversionRateTest {
     @Test(expected = NoRateAvailableException.class)
     public void getRateShouldThrowWhenRateNotSet() {
         converter.getRate(CurrencyEnum.USD, CurrencyEnum.CAN);
+    }
+
+    @Test(expected = NoSuchCurrencyException.class)
+    public void setRateShouldThrowOnNull() {
+        converter.setRate(null, CurrencyEnum.CAN, 1.2);
     }
 
     @Test
