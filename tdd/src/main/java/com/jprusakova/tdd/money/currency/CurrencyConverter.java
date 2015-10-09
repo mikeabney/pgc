@@ -12,6 +12,9 @@ public class CurrencyConverter {
     }
 
     public void setRate(CurrencyEnum convertFrom, CurrencyEnum convertTo, double rate) {
+        if (null == convertFrom || null == convertTo) {
+            throw new NoSuchCurrencyException(CurrencyEnum.INVALID);
+        }
         if (CurrencyEnum.INVALID.equals(convertFrom) || CurrencyEnum.INVALID.equals(convertTo)) {
             throw new NoSuchCurrencyException(CurrencyEnum.INVALID);
         }
