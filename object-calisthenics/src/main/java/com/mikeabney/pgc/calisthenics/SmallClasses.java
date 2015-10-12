@@ -1,5 +1,7 @@
 package com.mikeabney.pgc.calisthenics;
 
+import java.util.List;
+
 public class SmallClasses {
     public class BadPerson {
         private String firstName;
@@ -13,10 +15,10 @@ public class SmallClasses {
     }
 
     public class Surname {
-        private Name value;
+        private Wrappers.Name value;
     }
 
     public class GivenNames {
-        private List<Name> list;
+        private List<Wrappers.Name> list;
     }
 }
