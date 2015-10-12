@@ -4,4 +4,4 @@
 **/*.iml
 **/build/
 
-gradle/wrapper/gradle-wrapper.properties
+gradle/
