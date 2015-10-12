@@ -1,12 +1,14 @@
 package com.bud.pgc.tdd.calculator;
 
-import java.util.DoubleSummaryStatistics;
 import java.util.Stack;
 
 /**
  * Created by Bud on 9/28/2015.
  */
 public class Calculator {
+    private interface Operation {
+        public Double operate(Double operand1, Double operand2);
+    }
 
     private Stack<Double> numberStack;
 
@@ -20,35 +22,30 @@ public class Calculator {
     }
 
     public Calculator add() {
-        Double second = this.rpnPop();
-        Double first = this.rpnPop();
-        Double result = first + second;
-        this.pushValuesBack(first, second, result);
+        this.operate((first, second) -> first + second);
         return this;
     }
 
     public Calculator multiply() {
-        Double second = this.rpnPop();
-        Double first = this.rpnPop();
-        Double result = first * second;
-        this.pushValuesBack(first, second, result);
+        this.operate((first, second) -> first * second);
         return this;
     }
 
     public Calculator subtract(){
-        Double second = this.rpnPop();
-        Double first = this.rpnPop();
-        Double result = first - second;
-        this.pushValuesBack(first, second, result);
+        this.operate((first, second) -> first - second);
         return this;
     }
 
     public Calculator divide() {
+        this.operate((first, second) -> first / second);
+        return this;
+    }
+
+    public void operate(Operation operation) {
         Double second = this.rpnPop();
         Double first = this.rpnPop();
-        Double result = first / second;
+        Double result = operation.operate(first, second);
         this.pushValuesBack(first, second, result);
-        return this;
     }
 
     public double value() {
@@ -66,7 +63,7 @@ public class Calculator {
     }
 
     private Double rpnPop() {
-        return (this.numberStack.isEmpty()) ? 0 : this.numberStack.pop();
+        return (this.numberStack.isEmpty()) ? 0d : this.numberStack.pop();
     }
 
     private void pushValuesBack(Double first, Double second, Double result){
