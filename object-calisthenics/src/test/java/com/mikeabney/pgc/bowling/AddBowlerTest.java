@@ -1,7 +1,13 @@
 package com.mikeabney.pgc.bowling;
 
-/**
- * Created by mike on 10/12/15.
- */
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+
 public class AddBowlerTest {
+    @Test
+    public void newGameShouldHaveNoBowlers() {
+        Game game = new Game();
+        assertFalse(game.hasBowlers());
+    }
 }
