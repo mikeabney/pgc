@@ -2,9 +2,10 @@ package com.bud.pgc.calisthenics;
 
 
 public class Game {
-    private PlayerList playerList;
     private static final String SEPARATOR = "+--------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-------+-------+\n";
     private static final String HEADER = " Player  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  10   | Total |\n";
+
+    private PlayerList playerList;
 
     public Game(){
         this.playerList = new PlayerList();
