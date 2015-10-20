@@ -23,7 +23,11 @@ public class ScoreKeeper {
         builder.append(namePlate);
         String rolls = frames.displayRolls();
         builder.append(rolls);
-        frames.displayRolls();
-        return null;
+        return builder.toString();
+    }
+
+    public void addRoll(Player player, Pins pins) {
+        BowlingFrames frames = events.get(player);
+        frames.addRoll(pins);
     }
 }
