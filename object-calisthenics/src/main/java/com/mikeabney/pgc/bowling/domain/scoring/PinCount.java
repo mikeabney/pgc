@@ -21,10 +21,6 @@ public class PinCount {
         return count < pinCount.count;
     }
 
-    public boolean greaterThan(PinCount pinCount) {
-        return count > pinCount.count;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof PinCount) {
