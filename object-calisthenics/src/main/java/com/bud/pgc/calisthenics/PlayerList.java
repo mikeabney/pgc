@@ -15,22 +15,26 @@ public class PlayerList implements Iterable<Player>{
         this.players = players;
     }
 
-    public PlayerList add(Player player) {
+    public String add(Player player) {
         players.add(player);
-        return new PlayerList(this.players);
+        return player.toString() + " has been added";
     }
 
     public boolean isEmpty() {
         return players.isEmpty();
     }
 
-    public PlayerList remove(Player player) {
+    public String remove(Player player) {
         players.remove(player);
-        return new PlayerList(this.players);
+        return player.toString() + " has been removed";
     }
 
     @Override
     public Iterator<Player> iterator() {
         return players.iterator();
+    }
+
+    public Player currentPlayer() {
+        return players.get(0);
     }
 }
