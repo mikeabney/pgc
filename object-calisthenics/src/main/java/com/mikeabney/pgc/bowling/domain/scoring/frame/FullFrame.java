@@ -4,7 +4,7 @@ import com.mikeabney.pgc.bowling.domain.scoring.Frame;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.Roll;
 
-class FullFrame extends Frame {
+public class FullFrame extends Frame {
     private final Roll firstRoll;
     private final Roll secondRoll;
 
@@ -33,5 +33,10 @@ class FullFrame extends Frame {
     @Override
     public PinCount firstRollPinfall() {
         return firstRoll.fallenPins();
+    }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return secondRoll.fallenPins();
     }
 }

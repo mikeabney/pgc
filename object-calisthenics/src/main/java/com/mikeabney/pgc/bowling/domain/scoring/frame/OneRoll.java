@@ -4,7 +4,7 @@ import com.mikeabney.pgc.bowling.domain.scoring.Frame;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.Roll;
 
-class OneRoll extends Frame {
+public class OneRoll extends Frame {
     Roll roll;
 
     OneRoll(Roll roll) {
@@ -14,7 +14,7 @@ class OneRoll extends Frame {
     @Override
     public Frame roll(PinCount pinfall) {
         Roll secondRoll = Roll.withPinfall(standingPins(), pinfall);
-        if (standingPins().equals(pinfall)) {
+        if (PinCount.ZERO.equals(secondRoll.standingPins())) {
             return new Spare(roll, secondRoll);
         }
         return new FullFrame(roll, secondRoll);
