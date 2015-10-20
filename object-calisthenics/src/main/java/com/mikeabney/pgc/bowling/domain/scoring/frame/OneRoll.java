@@ -1,9 +1,13 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
-public class OneRollFrame extends Frame {
+import com.mikeabney.pgc.bowling.domain.scoring.Frame;
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+import com.mikeabney.pgc.bowling.domain.scoring.Roll;
+
+class OneRoll extends Frame {
     Roll roll;
 
-    OneRollFrame(Roll roll) {
+    OneRoll(Roll roll) {
         this.roll = roll;
     }
 
@@ -11,7 +15,7 @@ public class OneRollFrame extends Frame {
     public Frame roll(PinCount pinfall) {
         Roll secondRoll = Roll.withPinfall(standingPins(), pinfall);
         if (standingPins().equals(pinfall)) {
-            return new SpareFrame(roll, secondRoll);
+            return new Spare(roll, secondRoll);
         }
         return new FullFrame(roll, secondRoll);
     }

@@ -1,8 +1,10 @@
 package com.mikeabney.pgc.bowling.domain.scoring;
 
+import com.mikeabney.pgc.bowling.domain.scoring.frame.Empty;
+
 public abstract class Frame {
     public static Frame emptyFrame() {
-        return EmptyFrame.INSTANCE;
+        return Empty.INSTANCE;
     }
 
     public Frame roll(PinCount pinfall) {

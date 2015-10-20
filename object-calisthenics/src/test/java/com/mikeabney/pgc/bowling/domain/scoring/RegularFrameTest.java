@@ -14,7 +14,7 @@ public class RegularFrameTest {
     @Test
     public void incompleteFrameShouldAllowAnotherBall() {
         frame = frame.roll(new PinCount(1));
-        frame = frame.roll(new PinCount(2));
+        frame.roll(new PinCount(2));
     }
 
     @Test(expected = IllegalStateException.class)
