@@ -4,7 +4,6 @@ public class Roll {
     private PinCount startingPins;
     private PinCount pinfall;
 
-
     public static Roll withPinfall(PinCount startingPins, PinCount pinfall) {
         return new Roll(startingPins, pinfall);
     }
@@ -15,10 +14,6 @@ public class Roll {
         if (standingPins().lessThan(PinCount.ZERO)) {
             throw new IllegalArgumentException("Can't knock over more pins than remain.");
         }
-    }
-
-    public boolean leftPinsStanding() {
-        return standingPins().greaterThan(PinCount.ZERO);
     }
 
     public PinCount standingPins() {

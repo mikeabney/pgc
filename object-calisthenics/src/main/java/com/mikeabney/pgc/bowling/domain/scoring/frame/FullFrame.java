@@ -1,6 +1,10 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
-public class FullFrame extends Frame {
+import com.mikeabney.pgc.bowling.domain.scoring.Frame;
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+import com.mikeabney.pgc.bowling.domain.scoring.Roll;
+
+class FullFrame extends Frame {
     private final Roll firstRoll;
     private final Roll secondRoll;
 

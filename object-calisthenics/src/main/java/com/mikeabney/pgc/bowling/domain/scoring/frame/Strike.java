@@ -1,6 +1,9 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
-public class StrikeFrame extends Frame {
+import com.mikeabney.pgc.bowling.domain.scoring.Frame;
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+
+class Strike extends Frame {
     @Override
     public PinCount standingPins() {
         return PinCount.ZERO;

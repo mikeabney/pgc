@@ -1,7 +1,10 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
-public class SpareFrame extends FullFrame {
-    public SpareFrame(Roll firstRoll, Roll secondRoll) {
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+import com.mikeabney.pgc.bowling.domain.scoring.Roll;
+
+class Spare extends FullFrame {
+    public Spare(Roll firstRoll, Roll secondRoll) {
         super(firstRoll, secondRoll);
     }
 
