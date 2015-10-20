@@ -23,4 +23,9 @@ class Strike extends Frame {
     public boolean isStrike() {
         return true;
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return fallenPins();
+    }
 }

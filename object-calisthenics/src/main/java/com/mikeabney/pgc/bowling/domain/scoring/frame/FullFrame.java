@@ -29,4 +29,9 @@ class FullFrame extends Frame {
     public boolean isFull() {
         return true;
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return firstRoll.fallenPins();
+    }
 }

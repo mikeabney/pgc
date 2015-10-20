@@ -31,4 +31,11 @@ public abstract class Frame {
         return false;
     }
 
+    public PinCount firstRollPinfall() {
+        throw new IllegalStateException("First roll not recorded.");
+    }
+
+    public PinCount secondRollPinfall() {
+        throw new IllegalStateException("Second roll not recorded.");
+    }
 }

@@ -29,4 +29,9 @@ class OneRoll extends Frame {
     public PinCount fallenPins() {
         return roll.fallenPins();
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return fallenPins();
+    }
 }
