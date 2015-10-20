@@ -1,42 +1,31 @@
 package com.bud.pgc.calisthenics;
 
-import com.bud.pgc.calisthenics.Game;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static junit.framework.TestCase.assertEquals;
 
+/**
+ * Created by Work on 10/20/2015.
+ */
 public class GameManagementTests {
-    @Test
-    public void initialGameHasNoPlayers(){
-        Game game = new Game();
-        assertFalse(game.hasPlayers());
+    private Game game;
+    private Player player;
+
+    @Before
+    public void beforeTests(){
+        game = new Game();
+        player = new Player("Fred");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void cannotStartGameWithoutPlayers(){
+        game.startBowling();
     }
 
     @Test
-    public void canAddPlayer(){
-        Game game = new Game();
-        game.addPlayer(new Player());
-        assertTrue(game.hasPlayers());
-    }
-
-    @Test
-    public void canRemovePlayer(){
-        Game game = new Game();
-        assertFalse(game.hasPlayers());
-        Player player = new Player();
+    public void validGameStartPromptsForScore(){
         game.addPlayer(player);
-        assertTrue(game.hasPlayers());
-        game.removePlayer(player);
-        assertFalse(game.hasPlayers());
-    }
-
-    @Test
-    public void displayingScoreWithNoPlayersReturnsExpectedString(){
-        Game game = new Game();
-        String expected = "+--------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-------+-------+\n" +
-                " Player  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  10   | Total |\n" +
-                "+--------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-------+-------+\n";
-
-        assertEquals(expected, game.gameScore());
+        assertEquals("Fred is up to bowl", game.startBowling());
     }
 }
