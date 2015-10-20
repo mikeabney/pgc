@@ -16,9 +16,9 @@ public class Calculator {
 
     public double add(){
         Double total = 0.0;
-        for (Double number : this.numberToAdd){
+        /*for (Double number : this.numberToAdd){
             total += number;
-        }
+        }*/
         return this.value(total);
     }
 
