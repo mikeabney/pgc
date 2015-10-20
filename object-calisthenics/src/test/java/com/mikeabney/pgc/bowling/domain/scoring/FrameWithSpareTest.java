@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class FrameWithSpare {
+public class FrameWithSpareTest {
     private Frame frame;
     private PinCount firstRollPinfall;
     private PinCount secondRollPinfall;
@@ -24,7 +24,7 @@ public class FrameWithSpare {
     }
 
     @Test
-    public void shouldRememberFirstBallCount() {
+    public void shouldRememberFirstRollCount() {
         Assert.assertEquals(firstRollPinfall, frame.firstRollPinfall());
     }
 

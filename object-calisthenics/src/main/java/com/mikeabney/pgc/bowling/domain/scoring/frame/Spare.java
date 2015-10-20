@@ -3,7 +3,7 @@ package com.mikeabney.pgc.bowling.domain.scoring.frame;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.Roll;
 
-class Spare extends FullFrame {
+public class Spare extends FullFrame {
     public Spare(Roll firstRoll, Roll secondRoll) {
         super(firstRoll, secondRoll);
     }
