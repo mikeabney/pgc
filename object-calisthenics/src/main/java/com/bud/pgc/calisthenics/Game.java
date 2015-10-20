@@ -59,9 +59,9 @@ public class Game {
         return currentPlayer.toString() + " is up to bowl";
     }
 
-    public String addRoll(Roll roll){
+    public String scoreRoll(Pins pins){
         Player player = playerList.currentPlayer();
-        scoreKeeper.addRoll(player, roll);
+        scoreKeeper.addRoll(player, pins);
         return null;
     }
 }
