@@ -14,12 +14,16 @@ public class AskForScoreState extends BowlingState {
     public static final OutputLine MESSAGE = new OutputLine("Please enter the {0} score for frame {1} for player {2}...");
 
     protected AskForScoreState(IOModule io, IOModuleFactory ioFactory) {
-        super(io, ioFactory);
+        super(ioFactory.build(MESSAGE), ioFactory);
+    }
+
+    protected AskForScoreState(IOModule io, IOModuleFactory ioFactory, BowlingState previousState) {
+        super(ioFactory.build(MESSAGE), previousState);
     }
 
     @Override
     public BowlingState process() {
         InputLine score = readInput();
-        return new AskForScoreState(io, ioFactory);
+        return new AskForScoreState(io, ioFactory, this);
     }
 }

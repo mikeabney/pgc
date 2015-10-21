@@ -17,6 +17,11 @@ public abstract class BowlingState extends IOState{
         super(io, ioFactory);
     }
 
+    protected BowlingState(IOModule io, BowlingState previousState) {
+        super(io, previousState.ioFactory);
+        players = previousState.players;
+    }
+
     @Override
     public abstract BowlingState process();
 }
