@@ -1,7 +1,7 @@
 package com.calisthenics.ioModules.console;
 
-import com.calisthenics.ioModules.OutputLine;
-import com.calisthenics.ioModules.OutputModule;
+import com.calisthenics.ioModules.base.output.OutputLine;
+import com.calisthenics.ioModules.base.output.OutputModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,20 +19,13 @@ public class ConsoleOutput implements OutputModule {
         consoleLines = new ArrayList<>(Arrays.asList(lines));
     }
 
-    public ConsoleOutput(ConsoleOutput oldOutput, OutputLine... lines) {
-        consoleLines = oldOutput.consoleLines;
-        ArrayList<OutputLine> lineList = new ArrayList<>(Arrays.asList(lines));
-        consoleLines.addAll(lineList);
+    public ConsoleOutput(ConsoleOutput existingOutput, OutputLine... lines) {
+        consoleLines = new ArrayList<>();
+        consoleLines.addAll(existingOutput.consoleLines);
+        consoleLines.addAll(Arrays.asList(lines));
     }
 
     public void processToOutput() {
         consoleLines.forEach(out::println);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder output = new StringBuilder();
-        consoleLines.forEach(output::append);
-        return output.toString();
     }
 }

@@ -1,10 +1,13 @@
 package com.calisthenics.bowling;
 
 import com.calisthenics.StringResult;
+import com.calisthenics.bowling.states.EnterFirstPlayerState;
 import com.calisthenics.ioModules.FakeInputFactory;
 import com.calisthenics.ioModules.FakeOutput;
 import com.calisthenics.ioModules.FakeOutputFactory;
 import com.calisthenics.bowling.states.InitialState;
+import com.calisthenics.ioModules.base.IOModuleFactory;
+import com.calisthenics.ioModules.base.output.OutputLine;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,12 +22,21 @@ public class InitialStateTests {
 
     @Before
     public void TestSetup() {
-        state = new InitialState(new FakeInputFactory(), new FakeOutputFactory());
+        IOModuleFactory ioFactory = new IOModuleFactory(new FakeInputFactory(), new FakeOutputFactory());
+        state = new InitialState(ioFactory);
     }
 
     @Test
-    public void startingAppShouldAskForAName() {
+    public void startingAppShouldDisplayWelcomeMessage() {
         StringResult result = FakeOutput.output;
-        assertTrue(result.equals(InitialState.MESSAGE));
+        OutputLine message = InitialState.MESSAGE;
+        assertTrue(result.equals(message.toString()));
+    }
+
+    @Test
+    public void startingAppShouldMoveToEnterFirstPlayerState() {
+        BowlingState result = state.process();
+        Class<EnterFirstPlayerState> expectedNewState = EnterFirstPlayerState.class;
+        assertTrue(expectedNewState.isInstance(result));
     }
 }

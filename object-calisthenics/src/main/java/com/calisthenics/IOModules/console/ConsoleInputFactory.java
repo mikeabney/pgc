@@ -1,6 +1,6 @@
 package com.calisthenics.ioModules.console;
 
-import com.calisthenics.ioModules.InputModuleFactory;
+import com.calisthenics.ioModules.base.input.InputModuleFactory;
 
 /**
  * Created by Joshua Cosimo Rizzo on 10/12/2015.
