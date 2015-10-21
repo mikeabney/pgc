@@ -13,6 +13,10 @@ public class PlayerName {
         playerName = name.toString();
     }
 
+    public PlayerName(PlayerName previousName) {
+        playerName = previousName.playerName.toString();
+    }
+
     @Override
     public String toString() {
         return playerName;
