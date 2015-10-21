@@ -1,0 +1,58 @@
+package com.calisthenics.bowling;
+
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
+import com.calisthenics.ioModules.base.input.InputLine;
+
+=======
+>>>>>>> added score objects
+/**
+ * Created by Joshua Cosimo Rizzo on 10/20/2015.
+ */
+public class BowlingFrame {
+
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
+    private final Integer firstScore;
+    private final Integer secondScore;
+
+    public BowlingFrame() {
+        firstScore = null;
+        secondScore = null;
+=======
+    private final int firstScore;
+    private final int secondScore;
+
+    public BowlingFrame() {
+        firstScore = 0;
+        secondScore = 0;
+>>>>>>> added score objects
+    }
+
+    public BowlingFrame(BowlingFrame previousFrame) {
+        firstScore = previousFrame.firstScore;
+        secondScore = previousFrame.secondScore;
+    }
+
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
+    public BowlingFrame(Integer firstScore, Integer secondScore) {
+        this.firstScore = firstScore;
+        this.secondScore = secondScore;
+    }
+
+    public Integer missingScore() {
+        if (firstScore == null) return 0;
+        if (secondScore == null) return 1;
+        return null;
+    }
+
+    public BowlingFrame fillScore(FrameIndex scoreToFill, InputLine score) {
+        if (scoreToFill.rollIndex == 0)
+            return new BowlingFrame(score.toInt(), secondScore);
+        return new BowlingFrame(firstScore, score.toInt());
+    }
+=======
+    public BowlingFrame(int firstScore, int secondScore) {
+        this.firstScore = firstScore;
+        this.secondScore = secondScore;
+    }
+>>>>>>> added score objects
+}

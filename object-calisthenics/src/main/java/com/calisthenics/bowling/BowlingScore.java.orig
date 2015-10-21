@@ -1,0 +1,45 @@
+package com.calisthenics.bowling;
+
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
+import com.calisthenics.ioModules.base.input.InputLine;
+
+=======
+>>>>>>> added score objects
+import java.util.ArrayList;
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/20/2015.
+ */
+public class BowlingScore {
+
+    private final ArrayList<BowlingFrame> frames;
+    private final int totalFrames = 10;
+
+    public BowlingScore() {
+        frames = new ArrayList<>();
+        for (int i = 0; i < totalFrames; i++) {
+            frames.add(new BowlingFrame());
+        }
+    }
+
+    public BowlingScore(BowlingScore previousGameState) {
+        frames = previousGameState.frames;
+    }
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
+
+    public FrameIndex getLatestFrame(int playerIndex) {
+        FrameIndex retVal = new FrameIndex(0, 0, playerIndex);
+        for (int i = 0; i < totalFrames; i++) {
+            retVal = frames.get(i).missingScore() != null ? new FrameIndex(i, frames.get(i).missingScore(), playerIndex) : retVal;
+        }
+        return retVal;
+    }
+
+    public void fillScore(FrameIndex scoreToFill, InputLine score) {
+        BowlingFrame frame = frames.get(scoreToFill.frameIndex);
+        frame = frame.fillScore(scoreToFill, score);
+        frames.set(scoreToFill.frameIndex, frame);
+    }
+=======
+>>>>>>> added score objects
+}

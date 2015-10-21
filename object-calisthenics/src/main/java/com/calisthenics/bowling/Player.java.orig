@@ -8,7 +8,6 @@ import com.calisthenics.ioModules.base.input.InputLine;
 public class Player {
 
     private final PlayerName name;
-<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
     private final BowlingScore game;
 
     public Player(InputLine name) {
@@ -19,6 +18,7 @@ public class Player {
     public Player(Player lastPlayerState) {
         name = new PlayerName(lastPlayerState.name);
         game = new BowlingScore(lastPlayerState.game);
+<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
     }
 
     public FrameIndex getLatestFrame(int playerIndex) {
@@ -28,9 +28,6 @@ public class Player {
     public void fillScore(FrameIndex scoreToFill, InputLine score) {
         game.fillScore(scoreToFill, score);
 =======
-
-    public Player(InputLine name) {
-        this.name = new PlayerName(name);
->>>>>>> Refactored and added first few states
+>>>>>>> added score objects
     }
 }
