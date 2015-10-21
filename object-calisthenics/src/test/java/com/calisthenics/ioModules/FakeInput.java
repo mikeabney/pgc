@@ -1,5 +1,8 @@
 package com.calisthenics.ioModules;
 
+import com.calisthenics.ioModules.base.input.InputLine;
+import com.calisthenics.ioModules.base.input.InputModule;
+
 import java.io.IOException;
 
 /**

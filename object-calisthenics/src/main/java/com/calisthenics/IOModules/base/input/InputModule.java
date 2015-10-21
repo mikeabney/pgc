@@ -1,4 +1,4 @@
-package com.calisthenics.ioModules;
+package com.calisthenics.ioModules.base.input;
 
 import java.io.IOException;
 
