@@ -1,8 +1,8 @@
 package com.calisthenics.bowling;
 
 import com.calisthenics.StringResult;
+import com.calisthenics.bowling.states.AskForScoreState;
 import com.calisthenics.bowling.states.EnterAnotherPlayerState;
-import com.calisthenics.bowling.states.EnterFirstPlayerState;
 import com.calisthenics.bowling.states.StartGameState;
 import com.calisthenics.ioModules.FakeInput;
 import com.calisthenics.ioModules.FakeInputFactory;
@@ -19,36 +19,28 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Joshua Cosimo Rizzo on 10/12/2015.
  */
-public class EnterAnotherPlayerStateTests {
+public class StartGameStateTests {
 
-    private EnterAnotherPlayerState state;
+    private StartGameState state;
 
     @Before
     public void TestSetup() {
         IOModuleFactory ioFactory = new IOModuleFactory(new FakeInputFactory(), new FakeOutputFactory());
-        state = new EnterAnotherPlayerState(ioFactory.build(), ioFactory);
+        state = new StartGameState(ioFactory.build(), ioFactory);
     }
 
     @Test
-    public void startingStateShouldAskForPlayerName() {
+    public void startingStateShouldDisplayStartGameMessage() {
         StringResult result = FakeOutput.output;
-        OutputLine message = EnterAnotherPlayerState.MESSAGE;
+        OutputLine message = StartGameState.MESSAGE;
         assertTrue(result.equals(message.toString()));
     }
 
     @Test
-    public void afterInputShouldAskForAnotherPlayer() {
-        FakeInput.fakeInput = new InputLine("Test Player 2");
-        BowlingState result = state.process();
-        Class<EnterAnotherPlayerState> expectedNewState = EnterAnotherPlayerState.class;
-        assertTrue(expectedNewState.isInstance(result));
-    }
-
-    @Test
-    public void nullInputShouldGoToStartGameState() {
+    public void stateShouldStartAskingForScore() {
         FakeInput.fakeInput = null;
         BowlingState result = state.process();
-        Class<StartGameState> expectedNewState = StartGameState.class;
+        Class<AskForScoreState> expectedNewState = AskForScoreState.class;
         assertTrue(expectedNewState.isInstance(result));
     }
 }
