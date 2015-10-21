@@ -1,0 +1,35 @@
+package com.calisthenics.bowling;
+
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+import com.calisthenics.bowling.states.InitialState;
+import com.calisthenics.ioModules.base.IOModuleFactory;
+=======
+import com.calisthenics.bowling.states.BowlingState;
+import com.calisthenics.bowling.states.InitialState;
+>>>>>>> update from master
+import com.calisthenics.ioModules.console.ConsoleInputFactory;
+import com.calisthenics.ioModules.console.ConsoleOutputFactory;
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/12/2015.
+ */
+public class BowlingGame {
+
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+    public static void main(String[] args) {
+
+        ConsoleInputFactory inputFactory = new ConsoleInputFactory();
+        ConsoleOutputFactory outputFactory = new ConsoleOutputFactory();
+        IOModuleFactory ioFactory = new IOModuleFactory(inputFactory, outputFactory);
+        BowlingState state = new InitialState(ioFactory);
+=======
+    public static void main() {
+
+        BowlingState state = new InitialState(new ConsoleInputFactory(), new ConsoleOutputFactory());
+>>>>>>> update from master
+
+        while (state != null) {
+            state = state.process();
+        }
+    }
+}

@@ -1,0 +1,30 @@
+package com.calisthenics.ioModules.console;
+
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+import com.calisthenics.ioModules.base.input.InputLine;
+import com.calisthenics.ioModules.base.input.InputModule;
+=======
+import com.calisthenics.ioModules.InputLine;
+import com.calisthenics.ioModules.InputModule;
+>>>>>>> update from master
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/12/2015.
+ */
+public class ConsoleInput implements InputModule {
+
+    private final BufferedReader input;
+
+    public ConsoleInput() {
+        InputStreamReader inputReader = new InputStreamReader(System.in);
+        input = new BufferedReader(inputReader);
+    }
+
+    public InputLine readInput() throws IOException {
+        return new InputLine(input.readLine());
+    }
+}

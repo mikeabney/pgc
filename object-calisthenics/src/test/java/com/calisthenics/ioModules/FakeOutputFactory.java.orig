@@ -1,0 +1,40 @@
+package com.calisthenics.ioModules;
+
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+import com.calisthenics.ioModules.base.output.OutputLine;
+import com.calisthenics.ioModules.base.output.OutputModule;
+import com.calisthenics.ioModules.base.output.OutputModuleFactory;
+=======
+import com.calisthenics.StringResult;
+>>>>>>> update from master
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/12/2015.
+ */
+public class FakeOutputFactory implements OutputModuleFactory {
+
+    @Override
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+    public OutputModule create(OutputLine... lines) {
+        return new FakeOutput(lines);
+    }
+
+    @Override
+    public OutputModule createFromExisting(OutputModule existingOutput, OutputLine... lines) {
+        return new FakeOutput((FakeOutput) existingOutput, lines);
+=======
+    public OutputModule create() {
+        return new FakeOutput();
+    }
+
+    @Override
+    public OutputModule createFromPrevious(OutputModule previousOutput) {
+        return new FakeOutput((FakeOutput)previousOutput);
+    }
+
+    @Override
+    public OutputModule createWithNewLine(OutputModule previousOutput, OutputLine newLine) {
+        return new FakeOutput((FakeOutput)previousOutput, newLine);
+>>>>>>> update from master
+    }
+}

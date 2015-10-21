@@ -1,0 +1,36 @@
+package com.calisthenics.bowling;
+
+import com.calisthenics.ioModules.base.input.InputLine;
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/20/2015.
+ */
+public class Player {
+
+    private final PlayerName name;
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+    private final BowlingScore game;
+
+    public Player(InputLine name) {
+        this.name = new PlayerName(name);
+        game = new BowlingScore();
+    }
+
+    public Player(Player lastPlayerState) {
+        name = new PlayerName(lastPlayerState.name);
+        game = new BowlingScore(lastPlayerState.game);
+    }
+
+    public FrameIndex getLatestFrame(int playerIndex) {
+        return game.getLatestFrame(playerIndex);
+    }
+
+    public void fillScore(FrameIndex scoreToFill, InputLine score) {
+        game.fillScore(scoreToFill, score);
+=======
+
+    public Player(InputLine name) {
+        this.name = new PlayerName(name);
+>>>>>>> Refactored and added first few states
+    }
+}

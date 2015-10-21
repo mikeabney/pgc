@@ -1,0 +1,35 @@
+package com.calisthenics.bowling.states;
+
+import com.calisthenics.bowling.BowlingState;
+import com.calisthenics.ioModules.base.IOModule;
+import com.calisthenics.ioModules.base.IOModuleFactory;
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+import com.calisthenics.ioModules.base.output.OutputLine;
+=======
+>>>>>>> Refactored and added first few states
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/20/2015.
+ */
+public class StartGameState extends BowlingState {
+
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+    public static final OutputLine MESSAGE = new OutputLine("Starting bowling game...");
+
+    public StartGameState(IOModule io, IOModuleFactory ioFactory) {
+        super(ioFactory.build(MESSAGE), ioFactory);
+=======
+    protected StartGameState(IOModule io, IOModuleFactory ioFactory) {
+        super(io, ioFactory);
+>>>>>>> Refactored and added first few states
+    }
+
+    @Override
+    public BowlingState process() {
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+        return new AskForScoreState(io, ioFactory);
+=======
+        return null;
+>>>>>>> Refactored and added first few states
+    }
+}

@@ -1,0 +1,18 @@
+package com.calisthenics.ioModules.console;
+
+<<<<<<< c2f3bd25b3bdacc472bdeeac54a208518e2bf2ac
+import com.calisthenics.ioModules.base.input.InputModuleFactory;
+=======
+import com.calisthenics.ioModules.InputModuleFactory;
+>>>>>>> update from master
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/12/2015.
+ */
+public class ConsoleInputFactory implements InputModuleFactory {
+
+    @Override
+    public ConsoleInput create() {
+        return new ConsoleInput();
+    }
+}

@@ -1,0 +1,34 @@
+package com.calisthenics.bowling;
+
+import com.calisthenics.ioModules.base.IOModule;
+import com.calisthenics.ioModules.base.IOModuleFactory;
+import com.calisthenics.ioModules.base.IOState;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Joshua Cosimo Rizzo on 10/20/2015.
+ */
+public abstract class BowlingState extends IOState{
+
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+    protected BowlingCrew crew = new BowlingCrew();
+=======
+    protected ArrayList<Player> players = new ArrayList<>();
+>>>>>>> Refactored and added first few states
+
+    protected BowlingState(IOModule io, IOModuleFactory ioFactory) {
+        super(io, ioFactory);
+    }
+
+<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+    protected BowlingState(IOModule io, BowlingState previousState) {
+        super(io, previousState.ioFactory);
+        crew = previousState.crew;
+    }
+
+=======
+>>>>>>> Refactored and added first few states
+    @Override
+    public abstract BowlingState process();
+}
