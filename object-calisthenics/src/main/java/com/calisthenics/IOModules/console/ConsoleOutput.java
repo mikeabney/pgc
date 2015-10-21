@@ -28,11 +28,4 @@ public class ConsoleOutput implements OutputModule {
     public void processToOutput() {
         consoleLines.forEach(out::println);
     }
-
-    @Override
-    public String toString() {
-        StringBuilder output = new StringBuilder();
-        consoleLines.forEach(output::append);
-        return output.toString();
-    }
 }
