@@ -18,6 +18,10 @@ public class EnterAnotherPlayerState extends BowlingState {
         super(ioFactory.buildFromExisting(io, MESSAGE), ioFactory);
     }
 
+    public EnterAnotherPlayerState(IOModule io, IOModuleFactory ioFactory, BowlingState previousState) {
+        super(ioFactory.buildFromExisting(io, MESSAGE), previousState);
+    }
+
     @Override
     public BowlingState process() {
         InputLine parameter = readInput();
@@ -25,6 +29,6 @@ public class EnterAnotherPlayerState extends BowlingState {
             return new StartGameState(io, ioFactory);
         }
         players.add(new Player(parameter));
-        return new EnterAnotherPlayerState(io, ioFactory);
+        return new EnterAnotherPlayerState(io, ioFactory, this);
     }
 }
