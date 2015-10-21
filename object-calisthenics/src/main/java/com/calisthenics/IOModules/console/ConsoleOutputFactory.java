@@ -1,8 +1,9 @@
 package com.calisthenics.ioModules.console;
 
-import com.calisthenics.ioModules.OutputLine;
-import com.calisthenics.ioModules.OutputModule;
-import com.calisthenics.ioModules.OutputModuleFactory;
+import com.calisthenics.ioModules.base.IOModule;
+import com.calisthenics.ioModules.base.output.OutputLine;
+import com.calisthenics.ioModules.base.output.OutputModule;
+import com.calisthenics.ioModules.base.output.OutputModuleFactory;
 
 /**
  * Created by Joshua Cosimo Rizzo on 10/12/2015.
@@ -10,17 +11,12 @@ import com.calisthenics.ioModules.OutputModuleFactory;
 public class ConsoleOutputFactory implements OutputModuleFactory {
 
     @Override
-    public OutputModule create() {
-        return new ConsoleOutput();
+    public OutputModule create(OutputLine... newLines) {
+        return new ConsoleOutput(newLines);
     }
 
     @Override
-    public OutputModule createFromPrevious(OutputModule previousOutput) {
-        return new ConsoleOutput((ConsoleOutput)previousOutput);
-    }
-
-    @Override
-    public OutputModule createWithNewLine(OutputModule previousOutput, OutputLine newLine) {
-        return new ConsoleOutput((ConsoleOutput)previousOutput, newLine);
+    public OutputModule createFromExisting(OutputModule existingOutput, OutputLine... lines) {
+        return new ConsoleOutput((ConsoleOutput) existingOutput, lines);
     }
 }

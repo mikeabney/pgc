@@ -1,7 +1,7 @@
 package com.calisthenics.ioModules.console;
 
-import com.calisthenics.ioModules.InputLine;
-import com.calisthenics.ioModules.InputModule;
+import com.calisthenics.ioModules.base.input.InputLine;
+import com.calisthenics.ioModules.base.input.InputModule;
 
 import java.io.BufferedReader;
 import java.io.IOException;

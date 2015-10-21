@@ -1,7 +1,7 @@
 package com.calisthenics.bowling;
 
-import com.calisthenics.bowling.states.BowlingState;
 import com.calisthenics.bowling.states.InitialState;
+import com.calisthenics.ioModules.base.IOModuleFactory;
 import com.calisthenics.ioModules.console.ConsoleInputFactory;
 import com.calisthenics.ioModules.console.ConsoleOutputFactory;
 
@@ -10,9 +10,12 @@ import com.calisthenics.ioModules.console.ConsoleOutputFactory;
  */
 public class BowlingGame {
 
-    public static void main() {
+    public static void main(String[] args) {
 
-        BowlingState state = new InitialState(new ConsoleInputFactory(), new ConsoleOutputFactory());
+        ConsoleInputFactory inputFactory = new ConsoleInputFactory();
+        ConsoleOutputFactory outputFactory = new ConsoleOutputFactory();
+        IOModuleFactory ioFactory = new IOModuleFactory(inputFactory, outputFactory);
+        BowlingState state = new InitialState(ioFactory);
 
         while (state != null) {
             state = state.process();
