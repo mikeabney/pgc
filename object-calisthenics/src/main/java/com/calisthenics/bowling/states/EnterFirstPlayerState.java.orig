@@ -25,12 +25,11 @@ public class EnterFirstPlayerState extends BowlingState {
         if (parameter == null) {
             return new EnterFirstPlayerState(ioFactory.build(NO_INPUT, MESSAGE), ioFactory);
         }
-<<<<<<< 4a015a03bbbd54b08cdb414af05431ff99c440bf
+<<<<<<< dad847004c0f563b170d50022f588cad1a72b282
         crew.add(new Player(parameter));
-        return new EnterAnotherPlayerState(io, ioFactory, this);
 =======
         players.add(new Player(parameter));
-        return new EnterAnotherPlayerState(io, ioFactory);
->>>>>>> Refactored and added first few states
+>>>>>>> Fixed player name persistence
+        return new EnterAnotherPlayerState(io, ioFactory, this);
     }
 }
