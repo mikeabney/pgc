@@ -1,9 +1,9 @@
-package com.mikeabney.pgc.bowling;
+package com.mikeabney.pgc.bowling.domain;
 
-public class BowlerName {
+public class Name {
     private final String value;
 
-    public BowlerName(String value) {
+    public Name(String value) {
         this.value = value;
     }
 
@@ -14,8 +14,8 @@ public class BowlerName {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof BowlerName) {
-            String otherValue = ((BowlerName)obj).value;
+        if (obj instanceof Name) {
+            String otherValue = ((Name)obj).value;
             return otherValue.equals(value);
         }
 

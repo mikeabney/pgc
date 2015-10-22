@@ -1,41 +1,6 @@
 package com.mikeabney.pgc.bowling.domain.scoring;
 
-import com.mikeabney.pgc.bowling.domain.scoring.frame.Empty;
-
-public abstract class Frame {
-    public static Frame emptyFrame() {
-        return Empty.INSTANCE;
-    }
-
-    public Frame roll(PinCount pinfall) {
-        throw new IllegalStateException();
-    }
-
-    public PinCount standingPins() {
-        return PinCount.TEN;
-    }
-
-    public PinCount fallenPins() {
-        return PinCount.ZERO;
-    }
-
-    public boolean isFull() {
-        return false;
-    }
-
-    public boolean isStrike() {
-        return false;
-    }
-
-    public boolean isSpare() {
-        return false;
-    }
-
-    public PinCount firstRollPinfall() {
-        throw new IllegalStateException("First roll not recorded.");
-    }
-
-    public PinCount secondRollPinfall() {
-        throw new IllegalStateException("Second roll not recorded.");
-    }
+public interface Frame {
+    Frame roll(PinCount pinfall);
+    boolean isFull();
 }
