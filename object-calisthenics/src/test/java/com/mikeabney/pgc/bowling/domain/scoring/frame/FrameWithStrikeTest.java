@@ -1,15 +1,17 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
+import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class FrameWithStrikeTest {
-    private Frame frame;
+    private RegularFrame frame;
 
     @Before
     public void setUp() {
-        frame = Frame.emptyFrame();
+        frame = RegularFrame.EMPTY;
         frame = frame.roll(PinCount.TEN);
     }
 

@@ -1,16 +1,18 @@
-package com.mikeabney.pgc.bowling.domain.scoring;
+package com.mikeabney.pgc.bowling.domain.scoring.frame;
 
+import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class FrameWithOneRollAndNoStrikeTest {
-    private Frame frame;
+    private RegularFrame frame;
     private PinCount firstRollPinfall;
 
     @Before
     public void setUp() {
-        frame = Frame.emptyFrame();
+        frame = RegularFrame.EMPTY;
         firstRollPinfall = new PinCount(1);
         frame = frame.roll(firstRollPinfall);
     }

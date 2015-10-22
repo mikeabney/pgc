@@ -3,7 +3,8 @@ package com.mikeabney.pgc.bowling.domain.scoring;
 public class PinCount {
     public static final PinCount TEN = new PinCount(10);
     public static final PinCount ZERO = new PinCount(0);
-    private int count;
+
+    private final int count;
 
     public PinCount(int count) {
         this.count = count;

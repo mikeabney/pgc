@@ -1,8 +1,8 @@
 package com.mikeabney.pgc.bowling.domain.scoring;
 
 public class Roll {
-    private PinCount startingPins;
-    private PinCount pinfall;
+    private final PinCount startingPins;
+    private final PinCount pinfall;
 
     public static Roll withPinfall(PinCount startingPins, PinCount pinfall) {
         validateStartingPins(startingPins);
@@ -42,5 +42,9 @@ public class Roll {
 
     public PinCount fallenPins() {
         return pinfall;
+    }
+
+    public boolean leftPinsStanding() {
+        return PinCount.ZERO.lessThan(standingPins());
     }
 }
