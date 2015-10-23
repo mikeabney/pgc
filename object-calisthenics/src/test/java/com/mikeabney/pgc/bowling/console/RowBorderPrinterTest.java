@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.com.mikeabney.pgc.bowling.console;
+package com.mikeabney.pgc.bowling.console;
 
 import org.junit.Assert;
 import org.junit.Test;
