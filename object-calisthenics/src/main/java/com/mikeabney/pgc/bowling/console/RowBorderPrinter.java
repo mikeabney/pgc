@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.com.mikeabney.pgc.bowling.console;
+package com.mikeabney.pgc.bowling.console;
 
 import java.io.PrintWriter;
 import java.util.stream.IntStream;
