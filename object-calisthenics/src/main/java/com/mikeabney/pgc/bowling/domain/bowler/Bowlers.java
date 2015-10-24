@@ -2,7 +2,7 @@ package com.mikeabney.pgc.bowling.domain.bowler;
 
 import com.mikeabney.pgc.bowling.domain.Name;
 import com.mikeabney.pgc.bowling.domain.Names;
-import com.mikeabney.pgc.bowling.domain.scoring.Frames;
+import com.mikeabney.pgc.bowling.domain.scoring.ScoreRow;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ public class Bowlers {
     public static final Bowlers EMPTY = new Bowlers();
 
     private final Names names;
-    private final Map<Name, Frames> namesToScoresheets;
+    private final Map<Name, ScoreRow> namesToScoresheets;
 
     private Bowlers() {
         names = new Names();
@@ -23,7 +23,7 @@ public class Bowlers {
         names = new Names(other.names);
         names.add(bowler);
         namesToScoresheets = new HashMap<>(other.namesToScoresheets);
-        namesToScoresheets.put(bowler, Frames.EMPTY);
+        namesToScoresheets.put(bowler, ScoreRow.EMPTY);
     }
 
     public boolean hasBowlers() {
@@ -41,7 +41,7 @@ public class Bowlers {
         return names.stream();
     }
 
-    public Frames framesFor(Name bowler) {
+    public ScoreRow framesFor(Name bowler) {
         return namesToScoresheets.get(bowler);
     }
 }
