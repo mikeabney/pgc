@@ -24,14 +24,14 @@ public class FrameWithNoRollsTest {
         frame.roll(new PinCount(11));
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void shouldNotHaveFirstRollCount() {
-        frame.firstRollPinfall();
+    @Test
+    public void shouldHaveEmptyFirstRollCount() {
+        Assert.assertEquals("", frame.printFirstRollPinfall());
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void shouldNotHaveSecondRollCount() {
-        frame.secondRollPinfall();
+    @Test
+    public void shouldtHaveEmptySecondRollCount() {
+        Assert.assertEquals("", frame.printSecondRollPinfall());
     }
 
     @Test

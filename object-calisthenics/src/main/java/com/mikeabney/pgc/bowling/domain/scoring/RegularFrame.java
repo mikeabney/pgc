@@ -1,8 +1,8 @@
 package com.mikeabney.pgc.bowling.domain.scoring;
 
-import com.mikeabney.pgc.bowling.domain.scoring.frame.Empty;
+import com.mikeabney.pgc.bowling.domain.scoring.frame.regular.Empty;
 
-public abstract class RegularFrame implements Frame {
+public abstract class RegularFrame {
     public static final RegularFrame EMPTY = Empty.INSTANCE;
 
     public RegularFrame roll(PinCount pinfall) {
@@ -29,11 +29,11 @@ public abstract class RegularFrame implements Frame {
         return false;
     }
 
-    public PinCount firstRollPinfall() {
-        throw new IllegalStateException("First roll not recorded.");
+    public String printFirstRollPinfall() {
+        return "";
     }
 
-    public PinCount secondRollPinfall() {
-        throw new IllegalStateException("Second roll not recorded.");
+    public String printSecondRollPinfall() {
+        return "";
     }
 }

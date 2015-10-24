@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.domain.scoring.frame;
+package com.mikeabney.pgc.bowling.domain.scoring.frame.regular;
 
 import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;

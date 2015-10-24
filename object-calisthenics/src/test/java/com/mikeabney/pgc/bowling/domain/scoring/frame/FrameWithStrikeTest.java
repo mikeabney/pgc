@@ -22,12 +22,12 @@ public class FrameWithStrikeTest {
 
     @Test
     public void shouldRememberFirstRollCount() {
-        Assert.assertEquals(PinCount.TEN, frame.firstRollPinfall());
+        Assert.assertEquals("X", frame.printFirstRollPinfall());
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void shouldNotHaveSecondRollCount() {
-        frame.secondRollPinfall();
+    @Test
+    public void shouldHaveEmptySecondRollCount() {
+        Assert.assertEquals("", frame.printSecondRollPinfall());
     }
 
     @Test
