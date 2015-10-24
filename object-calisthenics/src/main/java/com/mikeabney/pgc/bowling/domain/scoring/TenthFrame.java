@@ -1,21 +1,25 @@
 package com.mikeabney.pgc.bowling.domain.scoring;
 
-public class TenthFrame implements Frame {
-    public static final TenthFrame EMPTY = new TenthFrame(TenthFrameRolls.EMPTY);
+import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.Empty;
 
-    private final TenthFrameRolls rolls;
+public abstract class TenthFrame {
+    public static final TenthFrame EMPTY = new Empty();
 
-    private TenthFrame(TenthFrameRolls rolls) {
-        this.rolls = rolls;
-    }
+    public abstract TenthFrame roll(PinCount pinfall);
 
-    public TenthFrame roll(PinCount pinfall) {
-        TenthFrameRolls newRolls = rolls.add(pinfall);
-        return new TenthFrame(newRolls);
-    }
-
-    @Override
     public boolean isFull() {
-        return rolls.isFull();
+        return false;
+    }
+
+    public String printFirstRollPinfall() {
+        return "";
+    }
+
+    public String printSecondRollPinfall() {
+        return "";
+    }
+
+    public String printThirdRollPinfall() {
+        return "";
     }
 }

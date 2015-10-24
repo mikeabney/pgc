@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.domain.scoring.frame;
+package com.mikeabney.pgc.bowling.domain.scoring.frame.regular;
 
 import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
@@ -31,12 +31,12 @@ public class Full extends RegularFrame {
     }
 
     @Override
-    public PinCount firstRollPinfall() {
-        return firstRoll.fallenPins();
+    public String printFirstRollPinfall() {
+        return firstRoll.printFallenPins();
     }
 
     @Override
-    public PinCount secondRollPinfall() {
-        return secondRoll.fallenPins();
+    public String printSecondRollPinfall() {
+        return secondRoll.printFallenPins();
     }
 }

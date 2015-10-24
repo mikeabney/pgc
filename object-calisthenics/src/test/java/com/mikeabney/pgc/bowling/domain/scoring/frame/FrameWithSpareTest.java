@@ -27,12 +27,12 @@ public class FrameWithSpareTest {
 
     @Test
     public void shouldRememberFirstRollCount() {
-        Assert.assertEquals(firstRollPinfall, frame.firstRollPinfall());
+        Assert.assertEquals(firstRollPinfall.print(), frame.printFirstRollPinfall());
     }
 
     @Test
     public void shouldRememberSecondBallCount() {
-        Assert.assertEquals(secondRollPinfall, frame.secondRollPinfall());
+        Assert.assertEquals("/", frame.printSecondRollPinfall());
     }
 
     @Test

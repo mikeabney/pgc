@@ -3,8 +3,9 @@ package com.mikeabney.pgc.bowling.domain.scoring;
 public class PinCount {
     public static final PinCount TEN = new PinCount(10);
     public static final PinCount ZERO = new PinCount(0);
+    public static final PinCount EMPTY = new NullPinCount();
 
-    private final int count;
+    protected final int count;
 
     public PinCount(int count) {
         this.count = count;
@@ -20,6 +21,10 @@ public class PinCount {
 
     public boolean lessThan(PinCount pinCount) {
         return count < pinCount.count;
+    }
+
+    public String print() {
+        return Integer.toString(count);
     }
 
     @Override
