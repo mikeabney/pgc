@@ -22,7 +22,7 @@ public class TenthFrameTwoRollSpareTest {
     }
 
     @Test
-    public void shouldHaveEmptySecondBall() {
+    public void shouldRememberSecondBall() {
         Assert.assertEquals("/", frame.printSecondRollPinfall());
     }
 
@@ -34,5 +34,10 @@ public class TenthFrameTwoRollSpareTest {
     @Test
     public void shouldNotBeFull() {
         Assert.assertFalse(frame.isFull());
+    }
+
+    @Test
+    public void shouldAllowThirdRoll() {
+        frame.roll(PinCount.ZERO);
     }
 }

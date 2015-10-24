@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth;
+package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threerolls;
 
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
@@ -6,29 +6,30 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TenthFrameTwoRollOpenTest {
+public class TenthFrameThreeStrikeTest {
     TenthFrame frame;
 
     @Before
     public void setUp() {
         frame = TenthFrame.EMPTY;
-        frame = frame.roll(new PinCount(4));
-        frame = frame.roll(new PinCount(3));
+        frame = frame.roll(PinCount.TEN);
+        frame = frame.roll(PinCount.TEN);
+        frame = frame.roll(PinCount.TEN);
     }
 
     @Test
     public void shouldRememberFirstBall() {
-        Assert.assertEquals("4", frame.printFirstRollPinfall());
+        Assert.assertEquals("X", frame.printFirstRollPinfall());
     }
 
     @Test
     public void shouldRememberSecondBall() {
-        Assert.assertEquals("3", frame.printSecondRollPinfall());
+        Assert.assertEquals("X", frame.printSecondRollPinfall());
     }
 
     @Test
-    public void shouldHaveEmptyThirdBall() {
-        Assert.assertEquals("", frame.printThirdRollPinfall());
+    public void shouldRememberThirdBall() {
+        Assert.assertEquals("X", frame.printThirdRollPinfall());
     }
 
     @Test
@@ -37,7 +38,7 @@ public class TenthFrameTwoRollOpenTest {
     }
 
     @Test(expected = IllegalStateException.class)
-    public void shouldNotAllowThirdRoll() {
+    public void shouldNotAllowFourthRoll() {
         frame.roll(PinCount.ZERO);
     }
 }
