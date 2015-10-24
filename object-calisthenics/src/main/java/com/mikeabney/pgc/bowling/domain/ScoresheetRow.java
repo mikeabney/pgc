@@ -1,14 +1,14 @@
 package com.mikeabney.pgc.bowling.domain;
 
-import com.mikeabney.pgc.bowling.domain.scoring.Frames;
+import com.mikeabney.pgc.bowling.domain.scoring.ScoreRow;
 
 public class ScoresheetRow {
     private final Name name;
-    private final Frames frames;
+    private final ScoreRow scoreRow;
 
-    public ScoresheetRow(Name name, Frames frames) {
+    public ScoresheetRow(Name name, ScoreRow scoreRow) {
         this.name = name;
-        this.frames = frames;
+        this.scoreRow = scoreRow;
     }
 
     public Name name() {

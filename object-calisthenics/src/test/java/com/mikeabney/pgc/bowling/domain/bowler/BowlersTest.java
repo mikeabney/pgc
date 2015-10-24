@@ -1,7 +1,7 @@
 package com.mikeabney.pgc.bowling.domain.bowler;
 
 import com.mikeabney.pgc.bowling.domain.Name;
-import com.mikeabney.pgc.bowling.domain.scoring.Frames;
+import com.mikeabney.pgc.bowling.domain.scoring.ScoreRow;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,8 +38,8 @@ public class BowlersTest {
     @Test
     public void bowlerShouldHaveFrames() {
         bowlers = bowlers.add(adam);
-        Frames frames = bowlers.framesFor(adam);
-        Assert.assertNotNull(frames);
+        ScoreRow scoreRow = bowlers.framesFor(adam);
+        Assert.assertNotNull(scoreRow);
     }
 
     @Test

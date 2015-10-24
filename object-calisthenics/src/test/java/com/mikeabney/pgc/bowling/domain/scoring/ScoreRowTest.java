@@ -5,31 +5,31 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
-public class FramesTest {
-    Frames frames;
+public class ScoreRowTest {
+    ScoreRow scoreRow;
 
     @Before
     public void setUp() {
-        frames = Frames.EMPTY;
+        scoreRow = ScoreRow.EMPTY;
     }
 
     @Test
     public void whenEmptyShouldAllowRoll() {
-        frames = frames.roll(PinCount.ZERO);
+        scoreRow = scoreRow.roll(PinCount.ZERO);
     }
 
     @Test
     public void shouldAllowTwelveStrikes() {
         IntStream stream = IntStream.rangeClosed(1, 12);
         stream.forEach((frameNumber) -> {
-            frames = frames.roll(PinCount.TEN);
+            scoreRow = scoreRow.roll(PinCount.TEN);
         });
     }
 
     @Test(expected = IllegalStateException.class)
     public void shouldNotAllowARollAfterTwelveStrikes() {
         IntStream stream = IntStream.rangeClosed(1, 12);
-        stream.forEach((frameNumber) -> frames = frames.roll(PinCount.TEN));
-        frames.roll(PinCount.ZERO);
+        stream.forEach((frameNumber) -> scoreRow = scoreRow.roll(PinCount.TEN));
+        scoreRow.roll(PinCount.ZERO);
     }
 }
