@@ -2,8 +2,8 @@ package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth;
 
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
-import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threeballs.OpenSpareOpen;
-import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threeballs.OpenSpareStrike;
+import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threerolls.OpenSpareOpen;
+import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threerolls.OpenSpareStrike;
 
 public class OpenSpare extends Open {
     public OpenSpare(PinCount firstRollPinfall) {

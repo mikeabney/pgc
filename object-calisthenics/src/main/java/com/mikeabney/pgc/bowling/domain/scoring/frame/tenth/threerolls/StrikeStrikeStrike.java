@@ -1,14 +1,10 @@
-package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threeballs;
+package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threerolls;
 
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
-import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.OpenSpare;
+import com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.StrikeStrike;
 
-public class OpenSpareStrike extends OpenSpare {
-
-    public OpenSpareStrike(PinCount firstRollPinfall) {
-        super(firstRollPinfall);
-    }
+public class StrikeStrikeStrike extends StrikeStrike {
 
     @Override
     public TenthFrame roll(PinCount pinfall) {
@@ -18,5 +14,10 @@ public class OpenSpareStrike extends OpenSpare {
     @Override
     public boolean isFull() {
         return true;
+    }
+
+    @Override
+    public String printThirdRollPinfall() {
+        return "X";
     }
 }

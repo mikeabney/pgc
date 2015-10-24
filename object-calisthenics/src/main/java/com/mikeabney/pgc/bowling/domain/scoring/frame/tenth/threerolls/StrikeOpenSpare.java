@@ -1,4 +1,4 @@
-package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threeballs;
+package com.mikeabney.pgc.bowling.domain.scoring.frame.tenth.threerolls;
 
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
@@ -17,5 +17,10 @@ public class StrikeOpenSpare extends StrikeOpen {
     @Override
     public boolean isFull() {
         return true;
+    }
+
+    @Override
+    public String printThirdRollPinfall() {
+        return "/";
     }
 }

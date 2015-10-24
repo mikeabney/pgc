@@ -6,24 +6,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TenthFrameTwoRollOpenTest {
+public class TenthFrameTwoStrikeTest {
     TenthFrame frame;
 
     @Before
     public void setUp() {
         frame = TenthFrame.EMPTY;
-        frame = frame.roll(new PinCount(4));
-        frame = frame.roll(new PinCount(3));
+        frame = frame.roll(PinCount.TEN);
+        frame = frame.roll(PinCount.TEN);
     }
 
     @Test
     public void shouldRememberFirstBall() {
-        Assert.assertEquals("4", frame.printFirstRollPinfall());
+        Assert.assertEquals("X", frame.printFirstRollPinfall());
     }
 
     @Test
     public void shouldRememberSecondBall() {
-        Assert.assertEquals("3", frame.printSecondRollPinfall());
+        Assert.assertEquals("X", frame.printSecondRollPinfall());
     }
 
     @Test
@@ -32,12 +32,12 @@ public class TenthFrameTwoRollOpenTest {
     }
 
     @Test
-    public void shouldBeFull() {
-        Assert.assertTrue(frame.isFull());
+    public void shouldNotBeFull() {
+        Assert.assertFalse(frame.isFull());
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void shouldNotAllowThirdRoll() {
+    @Test
+    public void shouldAllowThirdRoll() {
         frame.roll(PinCount.ZERO);
     }
 }
