@@ -32,15 +32,33 @@ public class ScoresheetRowObjectMother {
         return row.roll(PinCount.TEN);
     }
 
+    public static ScoresheetRow incompleteSpare() {
+        ScoresheetRow row = incomplete();
+
+        row = row.roll(new PinCount(7));
+        return row.roll(new PinCount(3));
+    }
+
     public static ScoresheetRow incomplete() {
-        // | X    | 5  3 | 7 / |
         ScoresheetRow row = new ScoresheetRow(name1);
         row = rollStrike(row);
 
         row = row.roll(new PinCount(5));
-        row = row.roll(new PinCount(3));
-
-        row = row.roll(new PinCount(7));
         return row.roll(new PinCount(3));
+    }
+
+    public static ScoresheetRow incompleteStrike() {
+        ScoresheetRow row = incomplete();
+        return row.roll(PinCount.TEN);
+    }
+
+    public static ScoresheetRow incompleteStrikePlusOneRoll() {
+        ScoresheetRow row = incompleteStrike();
+        return row.roll(new PinCount(7));
+    }
+
+    public static ScoresheetRow incompletePartialOpen() {
+        ScoresheetRow row = incomplete();
+        return row.roll(new PinCount(7));
     }
 }

@@ -22,4 +22,16 @@ public abstract class TenthFrame {
     public String printThirdRollPinfall() {
         return " ";
     }
+
+    public PinCount firstRollPinfall() {
+        return PinCount.EMPTY;
+    }
+
+    public PinCount secondRollPinfall() {
+        return PinCount.EMPTY;
+    }
+
+    public PinCount singleFrameScore() {
+        return PinCount.EMPTY;
+    }
 }

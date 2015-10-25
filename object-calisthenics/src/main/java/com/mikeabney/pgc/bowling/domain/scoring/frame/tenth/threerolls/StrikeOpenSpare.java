@@ -23,4 +23,10 @@ public class StrikeOpenSpare extends StrikeOpen {
     public String printThirdRollPinfall() {
         return "/";
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        PinCount firstAndLastRolls = new PinCount(20);
+        return firstAndLastRolls.plus(secondRollPinfall());
+    }
 }

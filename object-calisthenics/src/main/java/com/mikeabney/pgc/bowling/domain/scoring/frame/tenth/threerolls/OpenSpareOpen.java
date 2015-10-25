@@ -26,4 +26,9 @@ public class OpenSpareOpen extends OpenSpare {
     public String printThirdRollPinfall() {
         return thirdRollPinfall.print();
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        return PinCount.TEN.plus(thirdRollPinfall);
+    }
 }

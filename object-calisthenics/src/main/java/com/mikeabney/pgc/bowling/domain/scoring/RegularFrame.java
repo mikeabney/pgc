@@ -36,4 +36,16 @@ public abstract class RegularFrame {
     public String printSecondRollPinfall() {
         return " ";
     }
+
+    public PinCount singleFrameScore(PinCount nextBall, PinCount secondNextBall) {
+        return PinCount.EMPTY;
+    }
+
+    public PinCount secondRollPinfall() {
+        return PinCount.EMPTY;
+    }
+
+    public PinCount firstRollPinfall() {
+        return PinCount.EMPTY;
+    }
 }

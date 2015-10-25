@@ -27,4 +27,12 @@ public class Spare extends Full {
     public String printSecondRollPinfall() {
         return "/";
     }
+
+    @Override
+    public PinCount singleFrameScore(PinCount nextBall, PinCount secondNextBall) {
+        if (PinCount.EMPTY.equals(nextBall)) {
+            return PinCount.EMPTY;
+        }
+        return PinCount.TEN.plus(nextBall);
+    }
 }

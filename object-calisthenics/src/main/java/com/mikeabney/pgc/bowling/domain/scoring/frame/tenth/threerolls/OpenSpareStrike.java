@@ -24,4 +24,9 @@ public class OpenSpareStrike extends OpenSpare {
     public String printThirdRollPinfall() {
         return "X";
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        return new PinCount(20);
+    }
 }

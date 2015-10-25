@@ -22,4 +22,9 @@ public class OpenSpare extends Open {
     public String printSecondRollPinfall() {
         return "/";
     }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return PinCount.TEN;
+    }
 }

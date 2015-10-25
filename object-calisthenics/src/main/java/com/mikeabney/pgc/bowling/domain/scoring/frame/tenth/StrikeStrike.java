@@ -18,4 +18,9 @@ public class StrikeStrike extends Strike {
     public String printSecondRollPinfall() {
         return "X";
     }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return PinCount.TEN;
+    }
 }

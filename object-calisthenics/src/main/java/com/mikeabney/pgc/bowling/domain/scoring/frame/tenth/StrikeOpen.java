@@ -25,4 +25,9 @@ public class StrikeOpen extends Strike {
     public String printSecondRollPinfall() {
         return secondRollPinfall.print();
     }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return secondRollPinfall;
+    }
 }

@@ -23,7 +23,7 @@ public class NullPinCount extends PinCount {
     }
 
     public String print() {
-        return "";
+        return " ";
     }
 
     @Override

@@ -17,4 +17,14 @@ public class ScoreRowWithTenth extends ScoreRow {
         TenthFrame newTenth = tenthFrame.roll(pinfall);
         return new ScoreRowWithTenth(list, newTenth);
     }
+
+    @Override
+    public PinCount tenthFrameFirstRollPinfall() {
+        return tenthFrame.firstRollPinfall();
+    }
+
+    @Override
+    public PinCount tenthFrameSecondRollPinfall() {
+        return tenthFrame.secondRollPinfall();
+    }
 }

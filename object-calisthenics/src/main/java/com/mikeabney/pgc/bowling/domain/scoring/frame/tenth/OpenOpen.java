@@ -25,4 +25,9 @@ public class OpenOpen extends Open {
     public String printSecondRollPinfall() {
         return secondRollPinfall.print();
     }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return secondRollPinfall;
+    }
 }

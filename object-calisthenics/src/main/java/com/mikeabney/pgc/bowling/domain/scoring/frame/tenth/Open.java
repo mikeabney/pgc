@@ -23,4 +23,9 @@ public class Open extends Empty {
     public String printFirstRollPinfall() {
         return firstRollPinfall.print();
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return firstRollPinfall;
+    }
 }

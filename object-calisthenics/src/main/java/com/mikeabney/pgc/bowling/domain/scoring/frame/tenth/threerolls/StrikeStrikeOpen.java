@@ -25,4 +25,10 @@ public class StrikeStrikeOpen extends StrikeStrike {
     public String printThirdRollPinfall() {
         return thirdRollPinfall.print();
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        PinCount firstTwoRolls = new PinCount(20);
+        return firstTwoRolls.plus(thirdRollPinfall);
+    }
 }
