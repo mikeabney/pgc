@@ -30,10 +30,10 @@ public abstract class RegularFrame {
     }
 
     public String printFirstRollPinfall() {
-        return "";
+        return " ";
     }
 
     public String printSecondRollPinfall() {
-        return "";
+        return " ";
     }
 }

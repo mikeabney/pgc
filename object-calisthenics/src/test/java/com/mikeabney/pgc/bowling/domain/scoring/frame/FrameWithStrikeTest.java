@@ -27,7 +27,7 @@ public class FrameWithStrikeTest {
 
     @Test
     public void shouldHaveEmptySecondRollCount() {
-        Assert.assertEquals("", frame.printSecondRollPinfall());
+        Assert.assertEquals(" ", frame.printSecondRollPinfall());
     }
 
     @Test

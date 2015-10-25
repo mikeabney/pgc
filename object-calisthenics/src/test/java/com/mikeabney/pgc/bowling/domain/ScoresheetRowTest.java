@@ -9,9 +9,9 @@ public class ScoresheetRowTest {
     public void shouldKnowBowlerName() {
         ScoreRow scoreRow = ScoreRow.EMPTY;
         Name bowler = new Name("Adam");
-        ScoresheetRow row = new ScoresheetRow(bowler, scoreRow);
+        ScoresheetRow row = new ScoresheetRow(bowler);
 
-        Assert.assertEquals(bowler, row.name());
+        Assert.assertEquals(bowler.print(), row.printName());
     }
 
 }

@@ -15,17 +15,17 @@ public class TenthFrameEmptyTest {
 
     @Test
     public void shouldHaveEmptyFirstBall() {
-        Assert.assertEquals("", frame.printFirstRollPinfall());
+        Assert.assertEquals(" ", frame.printFirstRollPinfall());
     }
 
     @Test
     public void shouldHaveEmptySecondBall() {
-        Assert.assertEquals("", frame.printSecondRollPinfall());
+        Assert.assertEquals(" ", frame.printSecondRollPinfall());
     }
 
     @Test
     public void shouldHaveEmptyThirdBall() {
-        Assert.assertEquals("", frame.printThirdRollPinfall());
+        Assert.assertEquals(" ", frame.printThirdRollPinfall());
     }
 
     @Test

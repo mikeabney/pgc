@@ -26,12 +26,12 @@ public class FrameWithNoRollsTest {
 
     @Test
     public void shouldHaveEmptyFirstRollCount() {
-        Assert.assertEquals("", frame.printFirstRollPinfall());
+        Assert.assertEquals(" ", frame.printFirstRollPinfall());
     }
 
     @Test
     public void shouldtHaveEmptySecondRollCount() {
-        Assert.assertEquals("", frame.printSecondRollPinfall());
+        Assert.assertEquals(" ", frame.printSecondRollPinfall());
     }
 
     @Test

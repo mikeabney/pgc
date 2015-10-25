@@ -26,4 +26,8 @@ public class Name {
     public int hashCode() {
         return value.hashCode();
     }
+
+    public String print() {
+        return value;
+    }
 }

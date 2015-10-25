@@ -22,12 +22,12 @@ public class TenthFrameOneRollStrikeTest {
 
     @Test
     public void shouldHaveEmptySecondBall() {
-        Assert.assertEquals("", frame.printSecondRollPinfall());
+        Assert.assertEquals(" ", frame.printSecondRollPinfall());
     }
 
     @Test
     public void shouldHaveEmptyThirdBall() {
-        Assert.assertEquals("", frame.printThirdRollPinfall());
+        Assert.assertEquals(" ", frame.printThirdRollPinfall());
     }
 
     @Test
