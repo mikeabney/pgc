@@ -5,6 +5,7 @@ import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
 
 import java.io.PrintWriter;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RollRowPrinter {
@@ -19,6 +20,7 @@ public class RollRowPrinter {
         builder.append(buildNameField(row));
         builder.append(" | ");
         builder.append(buildRegularFramesField(row));
+        builder.append(" | ");
         builder.append(buildTenthFrameField(row));
         builder.append(" |");
         writer.println(builder.toString());
@@ -32,12 +34,7 @@ public class RollRowPrinter {
         Stream<RegularFrame> frames = row.regularFrames();
         Stream<String[]> rollPairs = frames.map(RollRowPrinter::mapRegularFrame);
         Stream<String> frameStrings = rollPairs.map(RollRowPrinter::printFrameRolls);
-        final StringBuilder builder = new StringBuilder();
-        frameStrings.forEach(frame -> {
-            builder.append(frame);
-            builder.append(" | ");
-        });
-        return builder.toString();
+        return frameStrings.collect(Collectors.joining(" | "));
     }
 
 
