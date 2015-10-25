@@ -20,7 +20,11 @@ public class RollRowPrinterTest {
         return Arrays.asList(new Object[][] {
                 {ScoresheetRowObjectMother.allSpares(), "| Adam       | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  /  3 |\n"},
                 {ScoresheetRowObjectMother.allStrikes(), "| Adam       | X    | X    | X    | X    | X    | X    | X    | X    | X    | X  X  X |\n"},
-                {ScoresheetRowObjectMother.incomplete(), "| Adam       | X    | 5  3 | 7  / |      |      |      |      |      |      |         |\n"}
+                {ScoresheetRowObjectMother.incompleteSpare(), "| Adam       | X    | 5  3 | 7  / |      |      |      |      |      |      |         |\n"},
+                {ScoresheetRowObjectMother.incompleteStrike(), "| Adam       | X    | 5  3 | X    |      |      |      |      |      |      |         |\n"},
+                {ScoresheetRowObjectMother.incompleteStrikePlusOneRoll(), "| Adam       | X    | 5  3 | X    | 7    |      |      |      |      |      |         |\n"},
+                {ScoresheetRowObjectMother.incompletePartialOpen(), "| Adam       | X    | 5  3 | 7    |      |      |      |      |      |      |         |\n"},
+                {ScoresheetRowObjectMother.incomplete(), "| Adam       | X    | 5  3 |      |      |      |      |      |      |      |         |\n"}
         });
     }
 

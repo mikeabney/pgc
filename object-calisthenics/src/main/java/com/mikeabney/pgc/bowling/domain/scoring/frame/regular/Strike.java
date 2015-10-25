@@ -13,7 +13,7 @@ public class Strike extends RegularFrame {
 
     @Override
     public PinCount fallenPins() {
-        return PinCount.TEN;
+        return firstRollPinfall();
     }
 
     @Override
@@ -29,5 +29,22 @@ public class Strike extends RegularFrame {
     @Override
     public String printFirstRollPinfall() {
         return "X";
+    }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return PinCount.TEN;
+    }
+
+    @Override
+    public PinCount singleFrameScore(PinCount nextBall, PinCount secondNextBall) {
+        if (PinCount.EMPTY.equals(nextBall)) {
+            return PinCount.EMPTY;
+        }
+        if (PinCount.EMPTY.equals(secondNextBall)) {
+            return PinCount.EMPTY;
+        }
+        PinCount plusOneBall = PinCount.TEN.plus(nextBall);
+        return plusOneBall.plus(secondNextBall);
     }
 }

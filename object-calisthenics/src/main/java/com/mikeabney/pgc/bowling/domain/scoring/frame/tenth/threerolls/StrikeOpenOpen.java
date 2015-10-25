@@ -26,4 +26,10 @@ public class StrikeOpenOpen extends StrikeOpen {
     public String printThirdRollPinfall() {
         return thirdRollPinfall.print();
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        PinCount firstAndSecondRolls = PinCount.TEN.plus(secondRollPinfall());
+        return firstAndSecondRolls.plus(thirdRollPinfall);
+    }
 }

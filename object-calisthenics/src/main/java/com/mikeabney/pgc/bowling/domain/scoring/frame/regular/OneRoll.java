@@ -34,4 +34,9 @@ public class OneRoll extends RegularFrame {
     public String printFirstRollPinfall() {
         return roll.printFallenPins();
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return roll.fallenPins();
+    }
 }

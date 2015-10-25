@@ -5,6 +5,7 @@ import com.mikeabney.pgc.bowling.domain.scoring.RegularFrame;
 import com.mikeabney.pgc.bowling.domain.scoring.ScoreRow;
 import com.mikeabney.pgc.bowling.domain.scoring.TenthFrame;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class ScoresheetRow {
@@ -34,5 +35,9 @@ public class ScoresheetRow {
 
     public TenthFrame tenthFrame() {
         return scoreRow.tenthFrame();
+    }
+
+    public List<PinCount> frameScores() {
+        return scoreRow.frameScores();
     }
 }

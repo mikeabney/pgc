@@ -35,4 +35,14 @@ public abstract class ScoreRow {
     public TenthFrame tenthFrame() {
         return tenthFrame;
     }
+
+    public List<PinCount> frameScores() {
+        ScoreVisitor visitor = new ScoreVisitor(this);
+        List<PinCount> pinCounts = visitor.scoreList();
+        return pinCounts;
+    }
+
+    public abstract PinCount tenthFrameFirstRollPinfall();
+
+    public abstract PinCount tenthFrameSecondRollPinfall();
 }

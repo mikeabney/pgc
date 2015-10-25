@@ -21,4 +21,9 @@ public class Strike extends TenthFrame {
     public String printFirstRollPinfall() {
         return "X";
     }
+
+    @Override
+    public PinCount firstRollPinfall() {
+        return PinCount.TEN;
+    }
 }

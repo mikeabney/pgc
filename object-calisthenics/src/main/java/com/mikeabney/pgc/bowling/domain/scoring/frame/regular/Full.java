@@ -36,7 +36,23 @@ public class Full extends RegularFrame {
     }
 
     @Override
+    public PinCount firstRollPinfall() {
+        return firstRoll.fallenPins();
+    }
+
+    @Override
     public String printSecondRollPinfall() {
         return secondRoll.printFallenPins();
+    }
+
+    @Override
+    public PinCount secondRollPinfall() {
+        return secondRoll.fallenPins();
+    }
+
+    @Override
+    public PinCount singleFrameScore(PinCount nextBall, PinCount secondNextBall) {
+        PinCount standingPins = secondRoll.standingPins();
+        return PinCount.TEN.minus(standingPins);
     }
 }
