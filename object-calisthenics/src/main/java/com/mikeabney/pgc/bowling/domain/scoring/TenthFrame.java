@@ -12,14 +12,14 @@ public abstract class TenthFrame {
     }
 
     public String printFirstRollPinfall() {
-        return "";
+        return " ";
     }
 
     public String printSecondRollPinfall() {
-        return "";
+        return " ";
     }
 
     public String printThirdRollPinfall() {
-        return "";
+        return " ";
     }
 }

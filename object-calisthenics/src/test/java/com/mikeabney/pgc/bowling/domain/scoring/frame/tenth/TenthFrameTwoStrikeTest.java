@@ -28,7 +28,7 @@ public class TenthFrameTwoStrikeTest {
 
     @Test
     public void shouldHaveEmptyThirdBall() {
-        Assert.assertEquals("", frame.printThirdRollPinfall());
+        Assert.assertEquals(" ", frame.printThirdRollPinfall());
     }
 
     @Test

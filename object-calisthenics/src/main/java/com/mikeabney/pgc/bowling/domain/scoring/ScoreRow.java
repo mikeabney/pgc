@@ -2,6 +2,7 @@ package com.mikeabney.pgc.bowling.domain.scoring;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public abstract class ScoreRow {
     public static final ScoreRow EMPTY = new ScoreRowWithOutTenth();
@@ -22,4 +23,16 @@ public abstract class ScoreRow {
     }
 
     public abstract ScoreRow roll(PinCount pinfall);
+
+    public Stream<RegularFrame> regularFrames() {
+        List<RegularFrame> returnList = new ArrayList<>(list);
+        while (returnList.size() < 9) {
+            returnList.add(RegularFrame.EMPTY);
+        }
+        return returnList.stream();
+    }
+
+    public TenthFrame tenthFrame() {
+        return tenthFrame;
+    }
 }

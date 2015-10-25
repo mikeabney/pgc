@@ -34,7 +34,7 @@ public class FrameWithOneRollAndNoStrikeTest {
 
     @Test
     public void shouldNotHaveSecondRollCount() {
-        Assert.assertEquals("", frame.printSecondRollPinfall());
+        Assert.assertEquals(" ", frame.printSecondRollPinfall());
     }
 
     @Test
