@@ -5,12 +5,12 @@ package com.calisthenics.bowling;
  */
 public class BowlingFrame {
 
-    private final int firstScore;
-    private final int secondScore;
+    private final Integer firstScore;
+    private final Integer secondScore;
 
     public BowlingFrame() {
-        firstScore = 0;
-        secondScore = 0;
+        firstScore = null;
+        secondScore = null;
     }
 
     public BowlingFrame(BowlingFrame previousFrame) {
@@ -18,8 +18,14 @@ public class BowlingFrame {
         secondScore = previousFrame.secondScore;
     }
 
-    public BowlingFrame(int firstScore, int secondScore) {
+    public BowlingFrame(Integer firstScore, Integer secondScore) {
         this.firstScore = firstScore;
         this.secondScore = secondScore;
+    }
+
+    public Integer missingScore() {
+        if (firstScore == null) return 0;
+        if (secondScore == null) return 1;
+        return null;
     }
 }
