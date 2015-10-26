@@ -19,4 +19,8 @@ public class InputLine {
     public Integer toInt() {
         return Integer.parseInt(param);
     }
+
+    public boolean isEmpty() {
+        return param == null || param.isEmpty();
+    }
 }
