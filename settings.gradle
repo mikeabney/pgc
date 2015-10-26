@@ -1,2 +1,3 @@
 include 'tdd'
 include 'object-calisthenics'
+include 'less-silly-bowling'
