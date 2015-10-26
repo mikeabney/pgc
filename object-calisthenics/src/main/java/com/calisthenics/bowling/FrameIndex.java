@@ -5,9 +5,9 @@ package com.calisthenics.bowling;
  */
 public class FrameIndex {
 
-    private final int playerIndex;
-    private final int frameIndex;
-    private final int rollIndex;
+    public final int playerIndex;
+    public final int frameIndex;
+    public final int rollIndex;
 
     public FrameIndex(int frameIndex, int rollIndex, int playerIndex) {
         this.frameIndex = frameIndex;
