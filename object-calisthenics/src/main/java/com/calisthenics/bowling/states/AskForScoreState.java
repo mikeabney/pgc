@@ -1,6 +1,8 @@
 package com.calisthenics.bowling.states;
 
 import com.calisthenics.bowling.BowlingState;
+import com.calisthenics.bowling.FrameIndex;
+import com.calisthenics.bowling.Player;
 import com.calisthenics.ioModules.base.IOModule;
 import com.calisthenics.ioModules.base.IOModuleFactory;
 import com.calisthenics.ioModules.base.input.InputLine;
@@ -25,5 +27,15 @@ public class AskForScoreState extends BowlingState {
     public BowlingState process() {
         InputLine score = readInput();
         return new AskForScoreState(io, ioFactory, this);
+    }
+
+    private FrameIndex findScoreToFill() {
+        FrameIndex latestFrame = null;
+        for (int i = 0; i < players.size(); i++) {
+            Player checkPlayer = players.get(i);
+            FrameIndex checkFrame = checkPlayer.getLatestFrame(i);
+            latestFrame = checkFrame.isBefore(latestFrame);
+        }
+        return latestFrame;
     }
 }

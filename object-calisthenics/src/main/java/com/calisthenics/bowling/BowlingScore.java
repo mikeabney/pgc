@@ -20,4 +20,12 @@ public class BowlingScore {
     public BowlingScore(BowlingScore previousGameState) {
         frames = previousGameState.frames;
     }
+
+    public FrameIndex getLatestFrame(int playerIndex) {
+        FrameIndex retVal = new FrameIndex(0, 0, playerIndex);
+        for (int i = 0; i < totalFrames; i++) {
+            retVal = frames.get(i).missingScore() != null ? new FrameIndex(i, frames.get(i).missingScore(), playerIndex) : retVal;
+        }
+        return retVal;
+    }
 }
