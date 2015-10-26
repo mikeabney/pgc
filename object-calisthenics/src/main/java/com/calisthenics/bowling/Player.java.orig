@@ -18,16 +18,16 @@ public class Player {
     public Player(Player lastPlayerState) {
         name = new PlayerName(lastPlayerState.name);
         game = new BowlingScore(lastPlayerState.game);
-<<<<<<< 4a3b3dd914a7c71538f2e7eb2e3c23eed38512cb
     }
 
     public FrameIndex getLatestFrame(int playerIndex) {
         return game.getLatestFrame(playerIndex);
     }
+<<<<<<< 88a13790731fbf7935014abd5c0eb0e76553b8e0
 
     public void fillScore(FrameIndex scoreToFill, InputLine score) {
         game.fillScore(scoreToFill, score);
-=======
->>>>>>> added score objects
     }
+=======
+>>>>>>> setting up main game state
 }

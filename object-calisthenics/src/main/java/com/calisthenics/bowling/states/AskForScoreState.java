@@ -31,4 +31,14 @@ public class AskForScoreState extends BowlingState {
             return new AskForScoreState(io, ioFactory, this);
         return new EndGameState(io, ioFactory);
     }
+
+    private FrameIndex findScoreToFill() {
+        FrameIndex latestFrame = null;
+        for (int i = 0; i < players.size(); i++) {
+            Player checkPlayer = players.get(i);
+            FrameIndex checkFrame = checkPlayer.getLatestFrame(i);
+            latestFrame = checkFrame.isBefore(latestFrame);
+        }
+        return latestFrame;
+    }
 }
