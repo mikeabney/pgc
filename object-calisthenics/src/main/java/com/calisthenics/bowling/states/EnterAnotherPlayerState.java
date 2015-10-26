@@ -25,7 +25,7 @@ public class EnterAnotherPlayerState extends BowlingState {
     @Override
     public BowlingState process() {
         InputLine parameter = readInput();
-        if (parameter == null) {
+        if (parameter == null || parameter.isEmpty()) {
             return new StartGameState(io, ioFactory);
         }
         crew.add(new Player(parameter));

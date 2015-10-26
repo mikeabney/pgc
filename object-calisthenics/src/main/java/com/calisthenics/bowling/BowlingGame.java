@@ -10,7 +10,7 @@ import com.calisthenics.ioModules.console.ConsoleOutputFactory;
  */
 public class BowlingGame {
 
-    public static void mJoshain(String[] args) {
+    public static void main(String[] args) {
 
         ConsoleInputFactory inputFactory = new ConsoleInputFactory();
         ConsoleOutputFactory outputFactory = new ConsoleOutputFactory();
