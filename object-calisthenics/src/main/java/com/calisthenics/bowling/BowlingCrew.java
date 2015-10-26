@@ -30,4 +30,12 @@ public class BowlingCrew {
     public boolean gameIsOver() {
         return false;
     }
+
+    public void add(Player player) {
+        players.add(player);
+    }
+
+    public int size() {
+        return players.size();
+    }
 }
