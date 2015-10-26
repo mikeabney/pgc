@@ -30,4 +30,9 @@ public class OpenOpen extends Open {
     public PinCount secondRollPinfall() {
         return secondRollPinfall;
     }
+
+    @Override
+    public PinCount singleFrameScore() {
+        return firstRollPinfall().plus(secondRollPinfall);
+    }
 }

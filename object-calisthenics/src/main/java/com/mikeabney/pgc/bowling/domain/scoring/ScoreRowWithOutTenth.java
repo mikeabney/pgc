@@ -34,6 +34,18 @@ public class ScoreRowWithOutTenth extends ScoreRow {
         return PinCount.EMPTY;
     }
 
+    @Override
+    public boolean isFull() {
+        return false;
+    }
+
+    @Override
+    public boolean currentFrameIsEmpty() {
+        int index = list.size() - 1;
+        RegularFrame lastFrame = list.get(index);
+        return RegularFrame.EMPTY.equals(lastFrame);
+    }
+
     private ScoreRowWithOutTenth replaceLast(RegularFrame newLast) {
         List<RegularFrame> newList = new ArrayList<>(list);
         newList.remove(lastIndex());

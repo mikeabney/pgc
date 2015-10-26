@@ -1,14 +1,14 @@
 package com.mikeabney.pgc.bowling.domain.mothers;
 
-import com.mikeabney.pgc.bowling.domain.Name;
 import com.mikeabney.pgc.bowling.domain.ScoresheetRow;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 
+import static com.mikeabney.pgc.bowling.domain.mothers.NameObjectMother.adam;
+
 public class ScoresheetRowObjectMother {
-    private static Name name1 = new Name("Adam");
 
     public static ScoresheetRow allSpares() {
-        ScoresheetRow row = new ScoresheetRow(name1);
+        ScoresheetRow row = new ScoresheetRow(adam);
         for (int index = 0 ; index < 10 ; index++ ) {
             row = rollSpare(row);
         }
@@ -21,11 +21,23 @@ public class ScoresheetRowObjectMother {
     }
 
     public static ScoresheetRow allStrikes() {
-        ScoresheetRow row = new ScoresheetRow(name1);
+        ScoresheetRow row = new ScoresheetRow(adam);
         for (int index = 0 ; index < 12 ; index++ ) {
             row = rollStrike(row);
         }
         return row;
+    }
+
+    public static ScoresheetRow allGutter() {
+        ScoresheetRow row = new ScoresheetRow(adam);
+        for (int index = 0 ; index < 20 ; index++ ) {
+            row = rollGutterball(row);
+        }
+        return row;
+    }
+
+    private static ScoresheetRow rollGutterball(ScoresheetRow row) {
+        return row.roll(PinCount.ZERO);
     }
 
     private static ScoresheetRow rollStrike(ScoresheetRow row) {
@@ -40,7 +52,7 @@ public class ScoresheetRowObjectMother {
     }
 
     public static ScoresheetRow incomplete() {
-        ScoresheetRow row = new ScoresheetRow(name1);
+        ScoresheetRow row = new ScoresheetRow(adam);
         row = rollStrike(row);
 
         row = row.roll(new PinCount(5));
@@ -60,5 +72,13 @@ public class ScoresheetRowObjectMother {
     public static ScoresheetRow incompletePartialOpen() {
         ScoresheetRow row = incomplete();
         return row.roll(new PinCount(7));
+    }
+
+    public static ScoresheetRow allOnePinRolls() {
+        ScoresheetRow row = new ScoresheetRow(adam);
+        for (int index = 0 ; index < 20 ; index++ ) {
+            row = row.roll(new PinCount(1));
+        }
+        return row;
     }
 }
