@@ -15,23 +15,32 @@ import java.util.Collection;
 @RunWith(Parameterized.class)
 public class RollRowPrinterTest {
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {ScoresheetRowObjectMother.allSpares(), "| Adam       | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  /  3 |\n"},
-                {ScoresheetRowObjectMother.allStrikes(), "| Adam       | X    | X    | X    | X    | X    | X    | X    | X    | X    | X  X  X |\n"},
-                {ScoresheetRowObjectMother.incompleteSpare(), "| Adam       | X    | 5  3 | 7  / |      |      |      |      |      |      |         |\n"},
-                {ScoresheetRowObjectMother.incompleteStrike(), "| Adam       | X    | 5  3 | X    |      |      |      |      |      |      |         |\n"},
-                {ScoresheetRowObjectMother.incompleteStrikePlusOneRoll(), "| Adam       | X    | 5  3 | X    | 7    |      |      |      |      |      |         |\n"},
-                {ScoresheetRowObjectMother.incompletePartialOpen(), "| Adam       | X    | 5  3 | 7    |      |      |      |      |      |      |         |\n"},
-                {ScoresheetRowObjectMother.incomplete(), "| Adam       | X    | 5  3 |      |      |      |      |      |      |      |         |\n"}
+                {"All gutter", ScoresheetRowObjectMother.allGutter(),
+                        "| Adam       | 0  0 | 0  0 | 0  0 | 0  0 | 0  0 | 0  0 | 0  0 | 0  0 | 0  0 | 0  0    |\n"},
+                {"All spares", ScoresheetRowObjectMother.allSpares(),
+                        "| Adam       | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  / | 3  /  3 |\n"},
+                {"Perfect game", ScoresheetRowObjectMother.allStrikes(),
+                        "| Adam       | X    | X    | X    | X    | X    | X    | X    | X    | X    | X  X  X |\n"},
+                {"Partial game", ScoresheetRowObjectMother.incomplete(),
+                        "| Adam       | X    | 5  3 |      |      |      |      |      |      |      |         |\n"},
+                {"Partial with last roll spare", ScoresheetRowObjectMother.incompleteSpare(),
+                        "| Adam       | X    | 5  3 | 7  / |      |      |      |      |      |      |         |\n"},
+                {"Partial with last roll strike", ScoresheetRowObjectMother.incompleteStrike(),
+                        "| Adam       | X    | 5  3 | X    |      |      |      |      |      |      |         |\n"},
+                {"Partial with strike and one more roll", ScoresheetRowObjectMother.incompleteStrikePlusOneRoll(),
+                        "| Adam       | X    | 5  3 | X    | 7    |      |      |      |      |      |         |\n"},
+                {"Partial with one roll in current frame", ScoresheetRowObjectMother.incompletePartialOpen(),
+                        "| Adam       | X    | 5  3 | 7    |      |      |      |      |      |      |         |\n"}
         });
     }
 
     private ScoresheetRow row;
     private String expectedOutput;
 
-    public RollRowPrinterTest(ScoresheetRow row, String expectedOutput) {
+    public RollRowPrinterTest(String name, ScoresheetRow row, String expectedOutput) {
         this.row = row;
         this.expectedOutput = expectedOutput;
     }

@@ -40,4 +40,20 @@ public class ScoresheetRow {
     public List<PinCount> frameScores() {
         return scoreRow.frameScores();
     }
+
+    public boolean currentFrameIsEmpty() {
+        return scoreRow.currentFrameIsEmpty();
+    }
+
+    public boolean nameEquals(Name bowler) {
+        return name.equals(bowler);
+    }
+
+    public Name name() {
+        return name;
+    }
+
+    public boolean isFull() {
+        return scoreRow.isFull();
+    }
 }

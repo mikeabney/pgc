@@ -19,6 +19,11 @@ public class ScoreRowWithTenth extends ScoreRow {
     }
 
     @Override
+    public boolean isFull() {
+        return tenthFrame.isFull();
+    }
+
+    @Override
     public PinCount tenthFrameFirstRollPinfall() {
         return tenthFrame.firstRollPinfall();
     }
@@ -26,5 +31,10 @@ public class ScoreRowWithTenth extends ScoreRow {
     @Override
     public PinCount tenthFrameSecondRollPinfall() {
         return tenthFrame.secondRollPinfall();
+    }
+
+    @Override
+    public boolean currentFrameIsEmpty() {
+        return TenthFrame.EMPTY.equals(tenthFrame);
     }
 }

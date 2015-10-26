@@ -42,7 +42,11 @@ public abstract class ScoreRow {
         return pinCounts;
     }
 
+    public abstract boolean isFull();
+
     public abstract PinCount tenthFrameFirstRollPinfall();
 
     public abstract PinCount tenthFrameSecondRollPinfall();
+
+    public abstract boolean currentFrameIsEmpty();
 }
