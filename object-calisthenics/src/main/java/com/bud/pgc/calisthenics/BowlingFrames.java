@@ -15,7 +15,13 @@ public class BowlingFrames {
         return "";
     }
 
-    public void addRoll(Pins pins) {
+    public FrameResult addRoll(Pins pins) {
+        if(this.currentFrame() == 10){
 
+        }
+    }
+
+    private int currentFrame() {
+        return 0;
     }
 }
