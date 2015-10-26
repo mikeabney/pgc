@@ -19,4 +19,8 @@ public class Player {
         name = new PlayerName(lastPlayerState.name);
         game = new BowlingScore(lastPlayerState.game);
     }
+
+    public FrameIndex getLatestFrame(int playerIndex) {
+        return game.getLatestFrame(playerIndex);
+    }
 }
