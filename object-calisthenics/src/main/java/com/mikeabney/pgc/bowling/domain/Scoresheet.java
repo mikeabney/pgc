@@ -58,4 +58,12 @@ public class Scoresheet {
     public Stream<ScoresheetRow> rows() {
         return rows.stream();
     }
+
+    public boolean isGameComplete() {
+        return false;
+    }
+
+    public Name currentBowler() {
+        return turnTracker.currentBowler();
+    }
 }

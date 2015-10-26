@@ -25,6 +25,6 @@ public class OpenSpare extends Open {
 
     @Override
     public PinCount secondRollPinfall() {
-        return PinCount.TEN;
+        return PinCount.TEN.minus(firstRollPinfall);
     }
 }
