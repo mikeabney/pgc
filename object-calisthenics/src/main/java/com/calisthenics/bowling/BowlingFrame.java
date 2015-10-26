@@ -1,5 +1,7 @@
 package com.calisthenics.bowling;
 
+import com.calisthenics.ioModules.base.input.InputLine;
+
 /**
  * Created by Joshua Cosimo Rizzo on 10/20/2015.
  */
@@ -27,5 +29,11 @@ public class BowlingFrame {
         if (firstScore == null) return 0;
         if (secondScore == null) return 1;
         return null;
+    }
+
+    public BowlingFrame fillScore(FrameIndex scoreToFill, InputLine score) {
+        if (scoreToFill.rollIndex == 0)
+            return new BowlingFrame(score.toInt(), secondScore);
+        return new BowlingFrame(firstScore, score.toInt());
     }
 }

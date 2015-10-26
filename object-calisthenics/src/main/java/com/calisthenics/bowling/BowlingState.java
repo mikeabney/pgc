@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public abstract class BowlingState extends IOState{
 
-    protected ArrayList<Player> players = new ArrayList<>();
+    protected BowlingCrew crew = new BowlingCrew();
 
     protected BowlingState(IOModule io, IOModuleFactory ioFactory) {
         super(io, ioFactory);
@@ -19,7 +19,7 @@ public abstract class BowlingState extends IOState{
 
     protected BowlingState(IOModule io, BowlingState previousState) {
         super(io, previousState.ioFactory);
-        players = previousState.players;
+        crew = previousState.crew;
     }
 
     @Override

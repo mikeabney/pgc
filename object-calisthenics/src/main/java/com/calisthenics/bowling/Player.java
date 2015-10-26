@@ -23,4 +23,8 @@ public class Player {
     public FrameIndex getLatestFrame(int playerIndex) {
         return game.getLatestFrame(playerIndex);
     }
+
+    public void fillScore(FrameIndex scoreToFill, InputLine score) {
+        game.fillScore(scoreToFill, score);
+    }
 }
