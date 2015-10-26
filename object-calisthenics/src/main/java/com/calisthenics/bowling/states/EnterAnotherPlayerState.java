@@ -15,11 +15,11 @@ public class EnterAnotherPlayerState extends BowlingState {
     public static final OutputLine MESSAGE = new OutputLine("Enter another player or leave blank to start the game.");
 
     public EnterAnotherPlayerState(IOModule io, IOModuleFactory ioFactory) {
-        super(ioFactory.buildFromExisting(io, MESSAGE), ioFactory);
+        super(ioFactory.build(MESSAGE), ioFactory);
     }
 
     public EnterAnotherPlayerState(IOModule io, IOModuleFactory ioFactory, BowlingState previousState) {
-        super(ioFactory.buildFromExisting(io, MESSAGE), previousState);
+        super(ioFactory.build(MESSAGE), previousState);
     }
 
     @Override
