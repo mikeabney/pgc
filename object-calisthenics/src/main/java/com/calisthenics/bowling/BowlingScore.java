@@ -1,5 +1,7 @@
 package com.calisthenics.bowling;
 
+import com.calisthenics.ioModules.base.input.InputLine;
+
 import java.util.ArrayList;
 
 /**
@@ -27,5 +29,11 @@ public class BowlingScore {
             retVal = frames.get(i).missingScore() != null ? new FrameIndex(i, frames.get(i).missingScore(), playerIndex) : retVal;
         }
         return retVal;
+    }
+
+    public void fillScore(FrameIndex scoreToFill, InputLine score) {
+        BowlingFrame frame = frames.get(scoreToFill.frameIndex);
+        frame = frame.fillScore(scoreToFill, score);
+        frames.set(scoreToFill.frameIndex, frame);
     }
 }

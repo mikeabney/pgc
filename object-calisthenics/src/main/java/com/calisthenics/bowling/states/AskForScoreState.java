@@ -26,16 +26,9 @@ public class AskForScoreState extends BowlingState {
     @Override
     public BowlingState process() {
         InputLine score = readInput();
-        return new AskForScoreState(io, ioFactory, this);
-    }
-
-    private FrameIndex findScoreToFill() {
-        FrameIndex latestFrame = null;
-        for (int i = 0; i < players.size(); i++) {
-            Player checkPlayer = players.get(i);
-            FrameIndex checkFrame = checkPlayer.getLatestFrame(i);
-            latestFrame = checkFrame.isBefore(latestFrame);
-        }
-        return latestFrame;
+        crew.fillScore(score);
+        if (!crew.gameIsOver())
+            return new AskForScoreState(io, ioFactory, this);
+        return new EndGameState(io, ioFactory);
     }
 }
