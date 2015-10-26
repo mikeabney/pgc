@@ -9,92 +9,48 @@ public class BowlingGame {
     private static final int TOTAL_FRAME_COUNT = 10;
 
     private List<Bowler> players = new ArrayList<>();
-    private BufferedReader consoleInput;
-    private OutputStream consoleOutput;
+    private int frameCount = 0;
 
-    public BowlingGame(InputStream in, OutputStream out) {
-        this.consoleInput = new BufferedReader(new InputStreamReader(in));
-        this.consoleOutput = out;
-    }
-
-    public BowlingGame() {
-        this(System.in, System.out);
-    }
-
-    public static void main(String [ ] args) throws IOException {
-        BowlingGame game = new BowlingGame();
-
-        game.createPlayers();
-        for (int i = 0; i < TOTAL_FRAME_COUNT; i++) {
-            game.playFrame();
-        }
+    public int getFrameCount() {
+        return frameCount;
     }
 
     private void playFrame() {
         for (Bowler bowler : players) {
-            Frame frame = collectNextFrame(bowler);
-            bowler.addFrame(frame);
+            bowler.collectNextFrame(null);
         }
+        frameCount++;
     }
 
-    public void createPlayers() throws IOException {
+    public void createPlayers(SillyBowlingConsole console) throws IOException {
         boolean addPlayer = true;
         while (addPlayer) {
-            addPlayer = addPlayer();
-            listPlayers(addPlayer);
+            addPlayer = collectPlayerInfo(console);
+            listPlayers(addPlayer, console);
         }
     }
 
-    private void listPlayers(boolean addedPlayer) throws IOException {
+
+    private void listPlayers(boolean addedPlayer, SillyBowlingConsole console) throws IOException {
         if (!addedPlayer || players.isEmpty()) {
             return;
         }
-        consoleOutput.write("Bowlers so far: ".getBytes());
+        console.write("Bowlers so far: ");
         for (Bowler b : players) {
-            consoleOutput.write(b.getName().getBytes());
+            console.write(b.getName());
         }
-        consoleOutput.write("\n".getBytes());
+        console.write("\n");
     }
 
-    private boolean addPlayer() {
-        String input = readInput("Provide a Bowler Name (use a blank line to start bowling)\n> ");
+
+    private boolean collectPlayerInfo(SillyBowlingConsole console) {
+        String input = console.readInput("Provide a Bowler Name (use a blank line to start bowling)\n> ");
         if (BowlingGame.isEmptyLine(input)) {
             return false;
         }
 
         players.add(new Bowler(new Person(input)));
         return true;
-    }
-
-    private String readInput(String message) {
-        try {
-            consoleOutput.write(message.getBytes());
-            String consoleInput = this.consoleInput.readLine();
-            return consoleInput;
-        } catch (IOException e) {
-            return "";
-        }
-    }
-
-    public Frame collectNextFrame(Bowler bowler) {
-        String promptMessage = "Enter " + bowler.getName() + "'s ";
-        int firstBall = collectBallResult(promptMessage + "first ball (X for strike)\n> ");
-        int secondBall = 0;
-        if (Score.STRIKE_RESULT != firstBall) {
-            secondBall = collectBallResult(promptMessage + "second ball (/ for spare)\n> ");
-        }
-
-        Frame frame = new Frame(firstBall, secondBall);
-        return frame;
-    }
-
-    private int collectBallResult(String promptMessage) {
-        String ballResult = "";
-
-        while (!Score.isValidBall(ballResult)) {
-            ballResult = readInput(promptMessage);
-        }
-        return Score.calculateBallResult(ballResult);
     }
 
     public static boolean isEmptyLine(String text) {
@@ -106,5 +62,14 @@ public class BowlingGame {
 
     public Iterable<Bowler> getPlayers() {
         return players;
+    }
+
+    public String showUnplayedFrames() {
+        StringBuffer buffer = new StringBuffer();
+        for (int currentFrame = frameCount; currentFrame < TOTAL_FRAME_COUNT; currentFrame++) {
+            buffer.append("     | ");
+        }
+        buffer.append('\n');
+        return buffer.toString();
     }
 }

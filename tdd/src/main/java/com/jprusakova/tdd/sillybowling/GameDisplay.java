@@ -1,34 +1,38 @@
 package com.jprusakova.tdd.sillybowling;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class GameDisplay {
 
-    private static final String horizontalLine = "+------+------+------+------+------+------+------+------+------+------+---------+";
-    private static final String frameLine = "|      |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   10    |";
+    private static final String horizontalLine = "+------+------+------+------+------+------+------+------+------+------+---------+\n";
+    private static final String frameLine = "|      |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   10    |\n";
 
     private BowlingGame game;
-    private OutputStream consoleOutput;
+    private SillyBowlingConsole console;
 
-    public GameDisplay(BowlingGame game, OutputStream outputStream) {
+    public GameDisplay(BowlingGame game, SillyBowlingConsole console) {
         this.game = game;
-        this.consoleOutput = outputStream;
+        this.console = console;
+    }
+
+    public GameDisplay(BowlingGame game, InputStream in, OutputStream out) {
+        this(game, new SillyBowlingConsole(in, out));
     }
 
     public void outputGameState() throws IOException {
         outputGameStateHeader();
         for (Bowler bowler : game.getPlayers()) {
-            bowler.showScore(consoleOutput);
-            consoleOutput.write(horizontalLine.getBytes());
+            console.write(bowler.showScore());
+            console.write(game.showUnplayedFrames());
+            console.write(horizontalLine);
         }
     }
 
     private void outputGameStateHeader() throws IOException {
-        consoleOutput.write("\n".getBytes());
-        consoleOutput.write("Current score:\n".getBytes());
-        consoleOutput.write(horizontalLine.getBytes());
-        consoleOutput.write(frameLine.getBytes());
-        consoleOutput.write(horizontalLine.getBytes());
+        console.write("\n");
+        console.write("Current score:\n");
+        console.write(horizontalLine);
+        console.write(frameLine);
+        console.write(horizontalLine);
     }
 }
