@@ -26,13 +26,22 @@ public class AskForScoreState extends BowlingState {
     @Override
     public BowlingState process() {
         InputLine score = readInput();
-<<<<<<< dad847004c0f563b170d50022f588cad1a72b282
         crew.fillScore(score);
         if (!crew.gameIsOver())
             return new AskForScoreState(io, ioFactory, this);
         return new EndGameState(io, ioFactory);
+<<<<<<< 94e7b71faafddf82097e17d3fb57beca374f94ce
+    }
+
+    private FrameIndex findScoreToFill() {
+        FrameIndex latestFrame = null;
+        for (int i = 0; i < players.size(); i++) {
+            Player checkPlayer = players.get(i);
+            FrameIndex checkFrame = checkPlayer.getLatestFrame(i);
+            latestFrame = checkFrame.isBefore(latestFrame);
+        }
+        return latestFrame;
 =======
-        return new AskForScoreState(io, ioFactory, this);
->>>>>>> Fixed player name persistence
+>>>>>>> filling out how to set a score
     }
 }

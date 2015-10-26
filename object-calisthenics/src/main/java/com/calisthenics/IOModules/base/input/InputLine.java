@@ -15,4 +15,8 @@ public class InputLine {
     public String toString() {
         return param;
     }
+
+    public Integer toInt() {
+        return Integer.parseInt(param);
+    }
 }
