@@ -25,7 +25,7 @@ public class EnterFirstPlayerState extends BowlingState {
         if (parameter == null) {
             return new EnterFirstPlayerState(ioFactory.build(NO_INPUT, MESSAGE), ioFactory);
         }
-        players.add(new Player(parameter));
+        crew.add(new Player(parameter));
         return new EnterAnotherPlayerState(io, ioFactory, this);
     }
 }

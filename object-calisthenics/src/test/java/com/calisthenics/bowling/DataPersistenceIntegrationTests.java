@@ -38,6 +38,6 @@ public class DataPersistenceIntegrationTests {
 
     @Test
     public void thereShouldBeThreePlayers() {
-        assertEquals(3, state.players.size());
+        assertEquals(3, state.crew.size());
     }
 }
