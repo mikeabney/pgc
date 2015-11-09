@@ -13,7 +13,7 @@ public class ScoresheetTest {
 
     @Before
     public void setUp() {
-        scoresheet = Scoresheet.EMPTY;
+        scoresheet = new ScoresheetFactory().BuildScoresheet();
     }
     
     @Test

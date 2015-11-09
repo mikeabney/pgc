@@ -5,24 +5,13 @@ import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 import java.util.stream.Stream;
 
 public class Scoresheet {
-    public static final Scoresheet EMPTY = new Scoresheet();
 
-    private final ScoresheetRows rows;
-    private final TurnTracker turnTracker;
+    final ScoresheetRows rows;
+    final TurnTracker turnTracker;
 
-    private Scoresheet() {
-        rows = new ScoresheetRows();
-        turnTracker = new TurnTracker();
-    }
-
-    private Scoresheet(Scoresheet other, Name bowler) {
-        rows = new ScoresheetRows(other.rows, bowler);
-        turnTracker = other.turnTracker.addBowler(bowler);
-    }
-
-    public Scoresheet(ScoresheetRows otherRows, TurnTracker otherTurnTracker) {
-        rows = new ScoresheetRows(otherRows);
-        turnTracker = otherTurnTracker;
+    protected Scoresheet(ScoresheetRows rows, TurnTracker turnTracker) {
+        this.rows = rows;
+        this.turnTracker = turnTracker;
     }
 
     public boolean hasBowlers() {
@@ -33,7 +22,7 @@ public class Scoresheet {
         if (turnTracker.containsBowler(bowler)) {
             throw new IllegalArgumentException("Name already used.");
         }
-        return new Scoresheet(this, bowler);
+        return new ScoresheetFactory().BuildScoresheet(this, bowler);
     }
 
     public ScoresheetRow rowFor(Name bowler) {

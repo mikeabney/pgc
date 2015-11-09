@@ -1,13 +1,14 @@
 package com.mikeabney.pgc.bowling.domain.mothers;
 
 import com.mikeabney.pgc.bowling.domain.Scoresheet;
+import com.mikeabney.pgc.bowling.domain.ScoresheetFactory;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 
 import static com.mikeabney.pgc.bowling.domain.mothers.NameObjectMother.*;
 
 public class ScoresheetObjectMother {
     public static Scoresheet partialGame() {
-        Scoresheet scoresheet = Scoresheet.EMPTY;
+        Scoresheet scoresheet = new ScoresheetFactory().BuildScoresheet();
         scoresheet = addThreeBowlers(scoresheet);
         for (int index = 0 ; index < 7 ; index++){
             scoresheet = rollStrike(scoresheet);
@@ -18,7 +19,7 @@ public class ScoresheetObjectMother {
     }
 
     public static Scoresheet completeGame() {
-        Scoresheet scoresheet = Scoresheet.EMPTY;
+        Scoresheet scoresheet = new ScoresheetFactory().BuildScoresheet();
         scoresheet = addThreeBowlers(scoresheet);
         for (int index = 0 ; index < 9 ; index++){
             scoresheet = rollStrike(scoresheet);

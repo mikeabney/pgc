@@ -3,6 +3,7 @@ package com.mikeabney.pgc.bowling;
 import com.mikeabney.pgc.bowling.console.ScoresheetPrinter;
 import com.mikeabney.pgc.bowling.domain.Name;
 import com.mikeabney.pgc.bowling.domain.Scoresheet;
+import com.mikeabney.pgc.bowling.domain.ScoresheetFactory;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
 
 import java.io.OutputStreamWriter;
@@ -28,7 +29,7 @@ public class Main {
         String continueString = "";
         do {
             System.out.println("--- Welcome to Silly Bowling ---\n");
-            Scoresheet scoresheet = Scoresheet.EMPTY;
+            Scoresheet scoresheet = new ScoresheetFactory().BuildScoresheet();
             scoresheet = addBowlers(scoresheet);
 
             System.out.println("Ready to bowl!");
