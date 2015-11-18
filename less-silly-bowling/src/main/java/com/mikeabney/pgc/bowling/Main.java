@@ -4,15 +4,19 @@ import com.mikeabney.pgc.bowling.console.ScoresheetPrinter;
 import com.mikeabney.pgc.bowling.domain.Name;
 import com.mikeabney.pgc.bowling.domain.Scoresheet;
 import com.mikeabney.pgc.bowling.domain.scoring.PinCount;
+import com.mikeabney.pgc.bowling.menu.*;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
     PrintWriter writer;
     Scanner scanner;
+    List<MenuCommand> availableCommands;
 
     public static void main (String... args) {
         Main main = new Main();
@@ -22,6 +26,8 @@ public class Main {
     public Main() {
         writer = new PrintWriter(new OutputStreamWriter(System.out));
         scanner = new Scanner(System.in);
+        availableCommands = new ArrayList<>();
+        availableCommands.add(new AddPlayerCommand());
     }
 
     private void run() {
@@ -29,7 +35,7 @@ public class Main {
         do {
             System.out.println("--- Welcome to Silly Bowling ---\n");
             Scoresheet scoresheet = Scoresheet.EMPTY;
-            scoresheet = addBowlers(scoresheet);
+            scoresheet = acceptCommands(scoresheet);
 
             System.out.println("Ready to bowl!");
             printScoresheet(scoresheet);
@@ -94,6 +100,25 @@ public class Main {
             System.out.println("Bowlers so far: " + names);
             name = prompt("Provide a Bowler Name (use a blank name to start bowling)");
         } while (!"".equals(name));
+        return scoresheet;
+    }
+
+    private Scoresheet acceptCommands(Scoresheet scoresheet) {
+        String reply = prompt("Please enter a command");
+        MenuCommand commandToExecute = null;
+        do {
+            for (MenuCommand command: availableCommands){
+                if (command.isCorrectCommand(reply)){
+                    commandToExecute = command;
+                }
+            }
+            if (null == commandToExecute){
+                commandToExecute = new HelpCommand();
+            }
+
+            scoresheet = commandToExecute.execute(scoresheet, reply);
+        } while (commandToExecute.getClass() != BowlCommand.class);
+
         return scoresheet;
     }
 
