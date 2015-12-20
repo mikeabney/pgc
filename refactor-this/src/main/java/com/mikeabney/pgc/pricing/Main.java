@@ -15,11 +15,11 @@ public class Main {
         Money total = cart.calculateTotal();
         System.out.format("%s%s%n", total.currencySymbol(), total.formatAmount());
 
-        cart.addBuyOneGetOne(item1); // Item 1 total now $50
+        // cart.addBuyOneGetOne(item1); // Item 1 total now $50
         total = cart.calculateTotal();
         System.out.format("%s%s%n", total.currencySymbol(), total.formatAmount());
 
-        cart.addPercentageDiscount(item2, BigDecimal.TEN); // Item 2 total now $90
+        // cart.addPercentageDiscount(item2, BigDecimal.TEN); // Item 2 total now $90
         total = cart.calculateTotal();
         System.out.format("%s%s%n", total.currencySymbol(), total.formatAmount());
     }

@@ -1,5 +1,9 @@
 package com.mikeabney.pgc.pricing;
 
+import com.mikeabney.pgc.pricing.discounts.BogoDiscount;
+import com.mikeabney.pgc.pricing.discounts.Discount;
+import com.mikeabney.pgc.pricing.discounts.PercentageDiscount;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,13 +15,11 @@ public class ShoppingCart {
     private static final double TAX_RATE = 0.0;
 
     private Map<Item, Integer> items;
-    private Set<Item> bogos;
-    private Map<Item, BigDecimal> percentageDiscounts;
+    private Set<Discount> discounts;
 
     public ShoppingCart() {
         items = new HashMap<>();
-        bogos = new HashSet<>();
-        percentageDiscounts = new HashMap<>();
+        discounts = new HashSet<>();
     }
 
     public void addItem(Item item) {
@@ -29,6 +31,10 @@ public class ShoppingCart {
         items.put(item, quantity + existingQuantity);
     }
 
+    public void addDiscount(Discount discount){
+        discounts.add(discount);
+    }
+
     public Money calculateTotal() {
         Money subtotal = Money.ZERO;
         for (Item item : items.keySet()) {
@@ -36,27 +42,14 @@ public class ShoppingCart {
         }
         Money savings = Money.ZERO;
         for (Item item : items.keySet()) {
-            if (bogos.contains(item)) {
-                int quantity = items.get(item);
-                quantity = quantity % 2 == 0 ? quantity : quantity - 1;
-                savings = savings.add(item.getPrice().multiply(new BigDecimal(quantity/2)));
+            for (Discount discount: this.discounts){
+                if (discount.getCoveredItem() == item){
+                    savings = savings.add(discount.getDiscount(items.get(item)));
+                }
             }
         }
-        for (Item item : items.keySet()) {
-            if (percentageDiscounts.containsKey(item)) {
-                Money perItemSavings = item.getPrice().multiply(percentageDiscounts.get(item));
-                savings = savings.add(perItemSavings.multiply(BigDecimal.valueOf(items.get(item))));
-            }
-        }
+
         subtotal = subtotal.subtract(savings);
         return subtotal.add(subtotal.multiply(BigDecimal.valueOf(TAX_RATE)));
-    }
-
-    public void addBuyOneGetOne(Item item) {
-        bogos.add(item);
-    }
-
-    public void addPercentageDiscount(Item item, BigDecimal percentage) {
-        percentageDiscounts.put(item, percentage.multiply(BigDecimal.valueOf(0.01))); // Convert %-age to multiplier.
     }
 }
