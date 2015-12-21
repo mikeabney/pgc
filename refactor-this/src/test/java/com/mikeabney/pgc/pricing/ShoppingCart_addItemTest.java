@@ -14,7 +14,7 @@ public class ShoppingCart_addItemTest {
 
     @Test
     public void newCartEmpty() {
-        assertEquals(Money.ZERO, shoppingCart.calculateTotal());
+        assertEquals(Money.ZERO, shoppingCart.calculateSubtotal());
         assertEquals(0, shoppingCart.calculateItemCount());
     }
 
@@ -22,7 +22,7 @@ public class ShoppingCart_addItemTest {
     public void addSingleItemAtPrice() {
         shoppingCart.addItem(item);
 
-        assertEquals(itemPrice, shoppingCart.calculateTotal());
+        assertEquals(itemPrice, shoppingCart.calculateSubtotal());
         assertEquals(1, shoppingCart.calculateItemCount());
     }
 
@@ -30,7 +30,7 @@ public class ShoppingCart_addItemTest {
     public void addBoGoItem() {
         shoppingCart.addBuyOneGetOne(item);
 
-        assertEquals(itemPrice, shoppingCart.calculateTotal());
+        assertEquals(itemPrice, shoppingCart.calculateSubtotal());
         assertEquals(2, shoppingCart.calculateItemCount());
     }
 }
